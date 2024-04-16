@@ -188,8 +188,6 @@ public class HOME extends javax.swing.JFrame {
      /** @param args the command line arguments
      */
     public static void main(String args[]) {
-        HOME ventana=new HOME();
-        ventana.setVisible(true);
                 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

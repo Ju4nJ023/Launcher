@@ -4,9 +4,11 @@
  */
 package poyecto.rino;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -23,8 +25,9 @@ public class embarque extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         SetImageLabel(helicoptero, "src/imagesGame/Embarque0.png");
         SetImageLabel(degradado, "src/imagesGame/Cuadrado.png");
-        SetImageLabel(bg, "src/imagesBase/FondoBase.png");
         
+        
+          
         
     }
 
@@ -74,6 +77,7 @@ public class embarque extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setOpaque(false);
@@ -138,7 +142,7 @@ public class embarque extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,15 +165,15 @@ public class embarque extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 1450, 100));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 1450, 100));
 
         helicoptero.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 helicopteroPropertyChange(evt);
             }
         });
-        getContentPane().add(helicoptero, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 720, 410));
-        getContentPane().add(degradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(773, 290, 830, 350));
+        getContentPane().add(helicoptero, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 720, 410));
+        getContentPane().add(degradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 830, 350));
 
         jPanel2.setOpaque(false);
 
@@ -223,7 +227,7 @@ public class embarque extends javax.swing.JFrame {
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 930, 600, 20));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1620, 1030, 260, -1));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 1000, 260, -1));
 
         jPanel3.setOpaque(false);
 
@@ -263,10 +267,10 @@ public class embarque extends javax.swing.JFrame {
                     .addComponent(jLabel30)
                     .addComponent(jLabel29)
                     .addComponent(jLabel28))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 660, 110, 30));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 660, 110, 30));
 
         jPanel4.setOpaque(false);
 
@@ -279,11 +283,11 @@ public class embarque extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 833, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 852, Short.MAX_VALUE)
                 .addComponent(jLabel19)
-                .addGap(45, 45, 45))
+                .addGap(34, 34, 34))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,10 +299,13 @@ public class embarque extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 960, -1));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 960, -1));
 
         bg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 30, 2080, 1100));
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, -20, 2070, 1120));
+
+        getAccessibleContext().setAccessibleName("frame1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

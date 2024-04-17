@@ -1,21 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package poyecto.rino;
 
-/**
- *
- * @author omarmedina
- */
-public class Page1 extends javax.swing.JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-    /**
-     * Creates new form Page1
-     */
+public class Page1 extends javax.swing.JFrame {
+ ImageIcon Imagen[]=new ImageIcon[5];
+ int contador=1;
     public Page1() {
         initComponents();
+        this.setTitle("Visor de imagenes");
+        for(int a=1;a<5;a++){
+            Imagen[a]=new ImageIcon(getClass().getResource("/imagesGame/Embarque"+a+".png"));
+            jLabel6.setIcon(Imagen[0]);
+        }
+        /**
+          images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque0.png")));
+    images.add(new images(getClass().getResource("/imagesGame/Embarque1.png")));
+    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque2.png")));
+    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque3.png")));
+    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque4.png")));
+    
+    // Mostrar la primera imagen al iniciar
+    showImage(currentIndex);
+    * */
     }
+
+    public JPanel getPanelP1() {
+    return p1; // Suponiendo que p1 es el JPanel que deseas devolver
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +39,85 @@ public class Page1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        p1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        p1.setBackground(new java.awt.Color(0, 39, 75));
+        p1.setPreferredSize(new java.awt.Dimension(1500, 800));
+        p1.setSize(new java.awt.Dimension(1500, 800));
+
+        jButton3.setText(">");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("<");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
+
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(575, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
+
+        getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(contador==5){
+            contador=0;
+        }
+        contador++;
+        jLabel6.setIcon(Imagen[contador]);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(contador==0){
+            contador=5;
+        }
+        contador--;
+        jLabel6.setIcon(Imagen[contador]);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +155,9 @@ public class Page1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel p1;
     // End of variables declaration//GEN-END:variables
 }

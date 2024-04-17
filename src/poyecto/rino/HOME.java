@@ -4,21 +4,20 @@
  */
 package poyecto.rino;
 
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author omarmedina
  */
 public class HOME extends javax.swing.JFrame {
 
-    /**
-     * Creates new form HOME
-     */
     public HOME() {
         initComponents();
-       
-
-
-
+    
     }
 
     /**
@@ -30,7 +29,7 @@ public class HOME extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        navegador = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -45,19 +44,20 @@ public class HOME extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        EmbarqueDesembarque = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        bg = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        bg = new javax.swing.JPanel();
+        bglabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setOpaque(false);
+        navegador.setOpaque(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
 
@@ -87,11 +87,11 @@ public class HOME extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout navegadorLayout = new javax.swing.GroupLayout(navegador);
+        navegador.setLayout(navegadorLayout);
+        navegadorLayout.setHorizontalGroup(
+            navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navegadorLayout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,10 +121,10 @@ public class HOME extends javax.swing.JFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 13, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        navegadorLayout.setVerticalGroup(
+            navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navegadorLayout.createSequentialGroup()
+                .addGroup(navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,48 +142,89 @@ public class HOME extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 1450, 100));
+        getContentPane().add(navegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 1450, 100));
 
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new java.awt.FlowLayout(1, 50, 60));
+        content.setOpaque(false);
+        content.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 60));
 
-        EmbarqueDesembarque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EmbarqueDesembarque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton0.png"))); // NOI18N
-        EmbarqueDesembarque.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        EmbarqueDesembarque.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                EmbarqueDesembarqueMouseEntered(evt);
+        jButton1.setBackground(new java.awt.Color(0, 39, 75));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton0.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
             }
         });
-        jPanel2.add(EmbarqueDesembarque);
+        content.add(jButton1);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton1.png"))); // NOI18N
-        jPanel2.add(jLabel16);
+        jButton2.setBackground(new java.awt.Color(0, 39, 75));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton1.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        content.add(jButton2);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton2.png"))); // NOI18N
-        jPanel2.add(jLabel17);
+        jButton3.setBackground(new java.awt.Color(0, 39, 75));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton2.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        content.add(jButton3);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton3.png"))); // NOI18N
-        jPanel2.add(jLabel18);
+        jButton4.setBackground(new java.awt.Color(0, 39, 75));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton3.png"))); // NOI18N
+        jButton4.setBorderPainted(false);
+        content.add(jButton4);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton4.png"))); // NOI18N
-        jPanel2.add(jLabel19);
+        jButton5.setBackground(new java.awt.Color(0, 39, 75));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton4.png"))); // NOI18N
+        jButton5.setBorderPainted(false);
+        content.add(jButton5);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton5.png"))); // NOI18N
-        jPanel2.add(jLabel20);
+        jButton6.setBackground(new java.awt.Color(0, 39, 75));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton5.png"))); // NOI18N
+        jButton6.setBorderPainted(false);
+        content.add(jButton6);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 1400, 770));
+        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 1500, 800));
 
-        bg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 2080, 1100));
+        bg.setPreferredSize(new java.awt.Dimension(1500, 800));
+
+        bglabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
+
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(bglabel)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(bglabel)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EmbarqueDesembarqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmbarqueDesembarqueMouseEntered
-       // setSize(defaultWidth()+ 50, defaultHeight() + 50);
-    }//GEN-LAST:event_EmbarqueDesembarqueMouseEntered
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+         
+            Page1 page1 = new Page1();
+            
+            // Obtener el panel p1 del Page1
+            JPanel p1 = page1.getPanelP1();
+
+            // Obtener el panel content del JFrame actual (HOME)
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton1MouseClicked
 
      /** @param args the command line arguments
      */
@@ -197,20 +238,22 @@ public class HOME extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmbarqueDesembarque;
-    private javax.swing.JLabel bg;
+    private javax.swing.JPanel bg;
+    private javax.swing.JLabel bglabel;
+    private javax.swing.JPanel content;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -218,8 +261,7 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel navegador;
     // End of variables declaration//GEN-END:variables
 
     private int defaultWidth() {

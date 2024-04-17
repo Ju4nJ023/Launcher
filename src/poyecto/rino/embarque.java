@@ -4,32 +4,33 @@
  */
 package poyecto.rino;
 
-import java.awt.BorderLayout;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import poyecto.rino.embarquefotos.helicoptero;
 
 /**
  *
  * @author omarmedina
  */
 public class embarque extends javax.swing.JFrame {
-
+ImageIcon Imagen[]=new ImageIcon[5];
+int contador=0;
     /**
      * Creates new form HOME
      */
     public embarque() {
         initComponents();
-        helicoptero p1= new helicoptero();
-        p1.setSize(640,380);
-        p1.setLocation(0,0);
-        
-        content.removeAll();
-        content .add(p1,BorderLayout.CENTER);
-        
+     this.setTitle("content");
+     for(int a=1;a<5;a++){
+     Imagen[a]= new ImageIcon(getClass().getResource("/imagesGame/Embarque"+a+".png"));
+     jLabel2.setIcon(Imagen[1]); 
+     }
+     
+     
+       
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,16 +41,13 @@ public class embarque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        content = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        degradado = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -57,13 +55,19 @@ public class embarque extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        flechaDerecha = new javax.swing.JLabel();
-        flechaIzquierda = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        botonIzq = new javax.swing.JButton();
+        botonDrc = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        degradado = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bg.setBackground(new java.awt.Color(14, 77, 144));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setOpaque(false);
 
@@ -83,61 +87,30 @@ public class embarque extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(543, 543, 543)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 730, 690, 60));
-
-        content.setOpaque(false);
-        content.setPreferredSize(new java.awt.Dimension(891, 525));
-
-        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
-        content.setLayout(contentLayout);
-        contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 891, Short.MAX_VALUE)
-        );
-        contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, -1, -1));
+        bg.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 840, -1, 30));
 
         jLabel17.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Lorem ipsum dolor sit amet, consectetur adipsing wlit, sed eisumod tempor incididunt ut labore et dolore magna aliqua");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 860, -1, 20));
+        bg.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 880, -1, 20));
 
         jLabel18.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut alquip ex ea commodo consequat");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 880, -1, -1));
+        bg.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 900, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Excepteur sint cupidat non prident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 950, 600, 20));
-
-        jLabel21.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Duis autte irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paratur.");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 930, 600, 20));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 1000, 260, -1));
-
-        degradado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
-        getContentPane().add(degradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 1010, 350));
+        jPanel1.setOpaque(false);
 
         jPanel3.setOpaque(false);
 
@@ -155,7 +128,7 @@ public class embarque extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,24 +151,28 @@ public class embarque extends javax.swing.JFrame {
                     .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 670, 110, 30));
-
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setOpaque(false);
 
-        flechaDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha derecha.png"))); // NOI18N
-        flechaDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                flechaDerechaMouseClicked(evt);
+        botonIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
+        botonIzq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIzqActionPerformed(evt);
             }
         });
 
-        flechaIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
-        flechaIzquierda.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonDrc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha derecha.png"))); // NOI18N
+        botonDrc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                flechaIzquierdaMouseClicked(evt);
+                botonDrcMouseClicked(evt);
+            }
+        });
+        botonDrc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDrcActionPerformed(evt);
             }
         });
 
@@ -203,39 +180,107 @@ public class embarque extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(flechaIzquierda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1082, Short.MAX_VALUE)
-                .addComponent(flechaDerecha)
-                .addGap(34, 34, 34))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonIzq)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 961, Short.MAX_VALUE)
+                .addComponent(botonDrc)
+                .addGap(16, 16, 16))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(flechaDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(flechaIzquierda))
+                    .addComponent(botonIzq, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonDrc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 420, 1190, 120));
+        degradado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        degradado.setPreferredSize(new java.awt.Dimension(845, 490));
 
-        jPanel5.setBackground(new java.awt.Color(14, 77, 144));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1810, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(434, 434, 434)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(616, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(113, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(58, Short.MAX_VALUE)
+                    .addComponent(degradado, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(171, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(187, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(209, Short.MAX_VALUE)))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(541, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(219, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(220, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(145, Short.MAX_VALUE)
+                    .addComponent(degradado, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(145, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(78, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(66, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 1810, 1080));
+        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 1160, 570));
+
+        jLabel21.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Duis autte irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paratur.");
+        bg.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 930, 600, 20));
+
+        jLabel20.setFont(new java.awt.Font("Raleway Medium", 0, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Excepteur sint cupidat non prident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        bg.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 950, 600, 20));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1510, 1510, 1510)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 1810, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(73, 73, 73))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1426, 1426, 1426)
+                .addComponent(jLabel22))
+        );
 
         getAccessibleContext().setAccessibleName("frame1");
 
@@ -250,50 +295,34 @@ public class embarque extends javax.swing.JFrame {
        this.repaint();
     }
     
-    private void flechaIzquierdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzquierdaMouseClicked
-       helicoptero p1= new helicoptero();
-        p1.setSize(640,380);
-        p1.setLocation(0,0);
-        
-        content.removeAll();
-        content .add(p1,BorderLayout.CENTER);
-    }//GEN-LAST:event_flechaIzquierdaMouseClicked
-
-    private void flechaDerechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerechaMouseClicked
-       
-       
+    private void botonIzqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIzqActionPerformed
+        if(contador==1){
+            contador=5;
+        }
+      contador--;
+      jLabel2.setIcon(Imagen[contador]);
       
-    
-    }//GEN-LAST:event_flechaDerechaMouseClicked
+    }//GEN-LAST:event_botonIzqActionPerformed
+
+    private void botonDrcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonDrcMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonDrcMouseClicked
+
+    private void botonDrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDrcActionPerformed
+     if(contador==4){
+         contador=0;
+     }
+       contador++;
+       jLabel2.setIcon(Imagen[contador]);
+      
+      
+    }//GEN-LAST:event_botonDrcActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(embarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(embarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(embarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(embarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -303,14 +332,15 @@ public class embarque extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel content;
+    private javax.swing.JPanel bg;
+    private javax.swing.JButton botonDrc;
+    private javax.swing.JButton botonIzq;
     private javax.swing.JLabel degradado;
-    private javax.swing.JLabel flechaDerecha;
-    private javax.swing.JLabel flechaIzquierda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -319,9 +349,9 @@ public class embarque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

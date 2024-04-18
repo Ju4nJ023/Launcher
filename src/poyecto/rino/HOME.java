@@ -212,7 +212,7 @@ public class HOME extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
          
-            Page1 page1 = new Page1();
+            Embarque page1 = new Embarque();
             
             // Obtener el panel p1 del Page1
             JPanel p1 = page1.getPanelP1();

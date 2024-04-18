@@ -4,10 +4,10 @@ package poyecto.rino;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Page1 extends javax.swing.JFrame {
+public class Maniobras extends javax.swing.JFrame {
  ImageIcon Imagen[]=new ImageIcon[5];
  int contador=0;
-    public Page1() {
+    public Maniobras() {
         initComponents();
         this.setTitle("Visor de imagenes");
         for(int a=0;a<5;a++){
@@ -54,7 +54,6 @@ public class Page1 extends javax.swing.JFrame {
 
         p1.setBackground(new java.awt.Color(0, 39, 75));
         p1.setPreferredSize(new java.awt.Dimension(1500, 800));
-        p1.setSize(new java.awt.Dimension(1500, 800));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setBackground(new java.awt.Color(0, 39, 75));
@@ -314,20 +313,23 @@ public class Page1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Maniobras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Maniobras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Maniobras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Maniobras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Page1().setVisible(true);
+                new Maniobras().setVisible(true);
             }
         });
     }

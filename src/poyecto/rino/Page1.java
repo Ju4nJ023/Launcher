@@ -10,20 +10,10 @@ public class Page1 extends javax.swing.JFrame {
     public Page1() {
         initComponents();
         this.setTitle("Visor de imagenes");
-        for(int a=1;a<5;a++){
+        for(int a=0;a<5;a++){
             Imagen[a]=new ImageIcon(getClass().getResource("/imagesGame/Embarque"+a+".png"));
-            jLabel6.setIcon(Imagen[1]);
+            jLabel6.setIcon(Imagen[0]);
         }
-        /**
-          images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque0.png")));
-    images.add(new images(getClass().getResource("/imagesGame/Embarque1.png")));
-    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque2.png")));
-    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque3.png")));
-    images.add(new ImageIcon(getClass().getResource("/imagesGame/Embarque4.png")));
-    
-    // Mostrar la primera imagen al iniciar
-    showImage(currentIndex);
-    * */
     }
 
     public JPanel getPanelP1() {
@@ -45,11 +35,11 @@ public class Page1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         circulos = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        boton1 = new javax.swing.JLabel();
+        boton2 = new javax.swing.JLabel();
+        boton3 = new javax.swing.JLabel();
+        boton4 = new javax.swing.JLabel();
+        boton5 = new javax.swing.JLabel();
         descripcion = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -96,15 +86,45 @@ public class Page1 extends javax.swing.JFrame {
 
         circulos.setOpaque(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselFilled.png"))); // NOI18N
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselFilled.png"))); // NOI18N
+        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton1MouseClicked(evt);
+            }
+        });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton2MouseClicked(evt);
+            }
+        });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton3MouseClicked(evt);
+            }
+        });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton4MouseClicked(evt);
+            }
+        });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png"))); // NOI18N
+        boton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout circulosLayout = new javax.swing.GroupLayout(circulos);
         circulos.setLayout(circulosLayout);
@@ -112,15 +132,15 @@ public class Page1 extends javax.swing.JFrame {
             circulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(circulosLayout.createSequentialGroup()
                 .addGap(165, 165, 165)
-                .addComponent(jLabel2)
+                .addComponent(boton1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(boton2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(boton3)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addComponent(boton4)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(boton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         circulosLayout.setVerticalGroup(
@@ -128,11 +148,11 @@ public class Page1 extends javax.swing.JFrame {
             .addGroup(circulosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(circulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
+                    .addComponent(boton5)
+                    .addComponent(boton4)
+                    .addComponent(boton3)
+                    .addComponent(boton2)
+                    .addComponent(boton1))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -151,12 +171,15 @@ public class Page1 extends javax.swing.JFrame {
         jLabel10.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula nisl id leo convallis, id congue tortor malesuada.");
         jLabel10.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        jLabel11.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Duis ac aliquet nunc. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.");
 
+        jLabel12.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("\nExcepteur sint occaecat cunidatat non broident. sunt in culpa aut otticia deserunt mollit anim id est laborum.");
 
+        jLabel13.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
 
@@ -209,28 +232,74 @@ public class Page1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         contador = (contador + 1) % 5; // Avanza al siguiente índice de imagen, ciclando de 0 a 4
+         contador = (contador + 1) % 5;
     jLabel6.setIcon(Imagen[contador]);
-        /**if(contador==0){
-            contador=1;
-        }
-        contador++;
-        jLabel6.setIcon(Imagen[contador]); */
+    actualizarIndicadores();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        contador = (contador - 1 + 5) % 5; // Retrocede al índice anterior de la imagen, ciclando de 4 a 0
+        contador = (contador - 1 + 5) % 5;
     jLabel6.setIcon(Imagen[contador]);
-        /**if(contador==1){
-            contador=0;
-        }
-        contador--;
-        jLabel6.setIcon(Imagen[contador]);*/
+    actualizarIndicadores();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
+        contador = 0;
+            jLabel6.setIcon(Imagen[contador]);
+            actualizarIndicadores();
+    }//GEN-LAST:event_boton1MouseClicked
+
+    private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
+        contador = 1;
+            jLabel6.setIcon(Imagen[contador]);
+            actualizarIndicadores();
+    }//GEN-LAST:event_boton2MouseClicked
+
+    private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
+        contador = 2;
+            jLabel6.setIcon(Imagen[contador]);
+            actualizarIndicadores();
+    }//GEN-LAST:event_boton3MouseClicked
+
+    private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
+        contador = 3;
+            jLabel6.setIcon(Imagen[contador]);
+            actualizarIndicadores();
+    }//GEN-LAST:event_boton4MouseClicked
+
+    private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
+        contador = 4;
+            jLabel6.setIcon(Imagen[contador]);
+            actualizarIndicadores();
+    }//GEN-LAST:event_boton5MouseClicked
+
+    private void actualizarIndicadores() {
+    int botonAnterior = contador == 0 ? 4 : contador - 1;
+    switch (botonAnterior) {
+        case 0:
+            boton1.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png")));
+            break;
+        case 1:
+            boton2.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png")));
+            break;
+        case 2:
+            boton3.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png")));
+            break;
+        case 3:
+            boton4.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png")));
+            break;
+        case 4:
+            boton5.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarruselEmpty.png")));
+            break;
+    }
+
+    boton1.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarrusel" + (contador == 0 ? "Filled" : "Empty") + ".png")));
+    boton2.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarrusel" + (contador == 1 ? "Filled" : "Empty") + ".png")));
+    boton3.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarrusel" + (contador == 2 ? "Filled" : "Empty") + ".png")));
+    boton4.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarrusel" + (contador == 3 ? "Filled" : "Empty") + ".png")));
+    boton5.setIcon(new ImageIcon(getClass().getResource("/imagesGame/PuntoCarrusel" + (contador == 4 ? "Filled" : "Empty") + ".png")));
+}
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -264,6 +333,11 @@ public class Page1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel boton1;
+    private javax.swing.JLabel boton2;
+    private javax.swing.JLabel boton3;
+    private javax.swing.JLabel boton4;
+    private javax.swing.JLabel boton5;
     private javax.swing.JPanel circulos;
     private javax.swing.JLabel comenzar;
     private javax.swing.JPanel descripcion;
@@ -274,12 +348,7 @@ public class Page1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel p1;

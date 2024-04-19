@@ -8,13 +8,31 @@ package poyecto.rino;
  *
  * @author omarmedina
  */
-public class HOME extends javax.swing.JFrame {
+public class myHome extends javax.swing.JFrame {
+   
 
+<<<<<<< Updated upstream:src/poyecto/rino/HOME.java
     /**
      * Creates new form HOME
      */
     public HOME() {
         initComponents();
+=======
+    public myHome() {
+        initComponents();
+        
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Image cursorImage = toolkit.getImage(getClass().getResource("/Componentes/IconoPunteroUniversae.png"));
+        
+        cursorImage = cursorImage.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+        
+        Cursor customCursor = toolkit.createCustomCursor(cursorImage, new Point(0, 0), "customCursor");
+        //this.setCursor(customCursor);
+        navegador.setCursor(customCursor);
+        content.setCursor(customCursor);
+        setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+   
+>>>>>>> Stashed changes:src/poyecto/rino/myHome.java
     }
 
     /**
@@ -170,17 +188,140 @@ public class HOME extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 1400, 770));
 
+<<<<<<< Updated upstream:src/poyecto/rino/HOME.java
         bg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -2, 2080, 1100));
+=======
+        bg.setPreferredSize(new java.awt.Dimension(1500, 800));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Return.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Return.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReturnMouseClicked(evt);
+            }
+        });
+        bg.add(Return, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 130, 140));
+
+        bglabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
+        bg.add(bglabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+>>>>>>> Stashed changes:src/poyecto/rino/myHome.java
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< Updated upstream:src/poyecto/rino/HOME.java
     private void EmbarqueDesembarqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmbarqueDesembarqueMouseEntered
        // setSize(defaultWidth()+ 50, defaultHeight() + 50);
     }//GEN-LAST:event_EmbarqueDesembarqueMouseEntered
 
+=======
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+  
+        myGame page1 = new myGame();
+             
+            
+            // Obtener el panel p1 del Page1
+            JPanel p1 = page1.getPanelP1();
+
+            // Obtener el panel content del JFrame actual (HOME)
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+                _protocolo page1 = new _protocolo();
+            
+            JPanel p1 = page1.getPanelP1();
+            
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+                _maniobras page1 = new _maniobras();
+            
+            JPanel p1 = page1.getPanelP1();
+            
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+               // Tipologia page1 = new Tipologia();
+            
+            JPanel p1 = page1.getPanelP1();
+            
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+                //Señalizacion page1 = new Señalizacion();
+            
+            JPanel p1 = page1.getPanelP1();
+            
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+                //Rescate page1 = new Rescate();
+            
+            JPanel p1 = page1.getPanelP1();
+            
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void ReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReturnMouseClicked
+        initializeContentPanel();
+    }//GEN-LAST:event_ReturnMouseClicked
+
+    private void initializeContentPanel() {
+    content.removeAll(); // Elimina todos los componentes del panel content
+
+    // Agrega los botones de navegación al panel content
+    content.add(jButton1);
+    content.add(jButton2);
+    content.add(jButton3);
+    content.add(jButton4);
+    content.add(jButton5);
+    content.add(jButton6);
+
+    // Vuelve a validar y repintar el panel content
+    content.revalidate();
+    content.repaint();
+}
+>>>>>>> Stashed changes:src/poyecto/rino/myHome.java
      /** @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -210,7 +351,7 @@ public class HOME extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HOME().setVisible(true);
+                new myHome().setVisible(true);
             }
         });
     }

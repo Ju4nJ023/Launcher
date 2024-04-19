@@ -27,20 +27,21 @@ public class myLauncherBase extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        toolBar = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
 
@@ -50,47 +51,51 @@ public class myLauncherBase extends javax.swing.JFrame {
         mainPanel.setSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
-        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+        toolBar.setOpaque(false);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
-        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
+        toolBar.add(jLabel16);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
-        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, -1, -1));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
+        toolBar.add(jLabel17);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
-        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 200, -1, -1));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
+        toolBar.add(jLabel18);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
-        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 310, -1, -1));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
+        toolBar.add(jLabel19);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
-        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 90, -1, -1));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
+        toolBar.add(jLabel20);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
-        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 210, -1, -1));
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
+        toolBar.add(jLabel21);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
-        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, -1, -1));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
+        toolBar.add(jLabel22);
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
-        mainPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, -1, -1));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
+        toolBar.add(jLabel23);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
-        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
+        toolBar.add(jLabel24);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
-        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, -1, -1));
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
+        toolBar.add(jLabel25);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
-        mainPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, -1, -1));
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
+        toolBar.add(jLabel26);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
-        mainPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
+        toolBar.add(jLabel27);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
+        toolBar.add(jLabel28);
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
+        toolBar.add(jLabel29);
+
+        mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
         mainPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -164,20 +169,21 @@ public class myLauncherBase extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JPanel content;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel toolBar;
     // End of variables declaration//GEN-END:variables
 }

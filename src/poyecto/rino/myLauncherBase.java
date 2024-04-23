@@ -1,27 +1,53 @@
 
 package poyecto.rino;
 
+import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javax.swing.JPanel;
 
 public class myLauncherBase extends javax.swing.JFrame {
 
     public myLauncherBase() {
         initComponents();
+        this.setLocationRelativeTo(this);
         
-         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image cursorImage = toolkit.getImage(getClass().getResource("/Componentes/IconoPunteroUniversae.png"));
-        
+        //Propiedades del cursor
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Image cursorImage = toolkit.getImage(getClass().getResource("/ImagesBase/CursorMano.png"));
         cursorImage = cursorImage.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
-        
         Cursor customCursor = toolkit.createCustomCursor(cursorImage, new Point(0, 0), "customCursor");
-        //this.setCursor(customCursor);
+        this.setCursor(customCursor);
         mainPanel.setCursor(customCursor);
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+     
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+       
+        executor.execute(() -> {
+            try { Thread.sleep(20);}
+            catch (InterruptedException e) {}
+            
+            myHomePanel home = new myHomePanel();
+            home.setSize(1530,860);
+            home.setLocation(0,0);  
+            home.parent=this;
+            //home.IniciarHome();
+            showHomePanel(home);
+        });
+        
+        executor.shutdown();
     }
     
+     private void showHomePanel(myHomePanel home) {
+        showView.removeAll();
+        showView.add(home, BorderLayout.CENTER);
+        showView.revalidate();
+        showView.repaint();
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -44,10 +70,12 @@ public class myLauncherBase extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        showView = new javax.swing.JPanel();
         bg = new javax.swing.JLabel();
-        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setSize(new java.awt.Dimension(1920, 1080));
@@ -99,21 +127,25 @@ public class myLauncherBase extends javax.swing.JFrame {
 
         mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
 
+        showView.setMaximumSize(new java.awt.Dimension(1552, 880));
+        showView.setPreferredSize(new java.awt.Dimension(1552, 880));
+
+        javax.swing.GroupLayout showViewLayout = new javax.swing.GroupLayout(showView);
+        showView.setLayout(showViewLayout);
+        showViewLayout.setHorizontalGroup(
+            showViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1552, Short.MAX_VALUE)
+        );
+        showViewLayout.setVerticalGroup(
+            showViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(showView, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 1552, 880));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
+        bg.setOpaque(true);
         mainPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
-        content.setLayout(contentLayout);
-        contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1530, Short.MAX_VALUE)
-        );
-        contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 860, Short.MAX_VALUE)
-        );
-
-        mainPanel.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 1530, 860));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,7 +202,6 @@ public class myLauncherBase extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
-    private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -186,6 +217,7 @@ public class myLauncherBase extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel showView;
     private javax.swing.JPanel toolBar;
     // End of variables declaration//GEN-END:variables
 }

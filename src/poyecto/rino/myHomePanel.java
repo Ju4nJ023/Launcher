@@ -20,7 +20,6 @@ public class myHomePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         HomePanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -34,33 +33,28 @@ public class myHomePanel extends javax.swing.JPanel {
         HomePanel.setPreferredSize(new java.awt.Dimension(1552, 880));
         HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 100, 100));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton0.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1);
+        HomePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton1.png"))); // NOI18N
-        jPanel2.add(jLabel2);
+        HomePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton2.png"))); // NOI18N
-        jPanel2.add(jLabel3);
+        HomePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton3.png"))); // NOI18N
-        jPanel2.add(jLabel4);
+        HomePanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton4.png"))); // NOI18N
-        jPanel2.add(jLabel5);
+        HomePanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 490, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton5.png"))); // NOI18N
-        jPanel2.add(jLabel6);
-
-        HomePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 1460, 810));
+        HomePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -103,6 +97,5 @@ public class myHomePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

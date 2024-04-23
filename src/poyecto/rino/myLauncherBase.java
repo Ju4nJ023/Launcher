@@ -5,8 +5,10 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import javax.swing.JPanel;
 
 public class myLauncherBase extends javax.swing.JFrame {
+    private myHomePanel HomePanel;
 
     public myLauncherBase() {
         initComponents();
@@ -20,8 +22,21 @@ public class myLauncherBase extends javax.swing.JFrame {
         //this.setCursor(customCursor);
         mainPanel.setCursor(customCursor);
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        
+        HomePanel = new myHomePanel();
+        // Mostrar el panel homePanel por defecto
+        showHomePanel();
     }
     
+     private void showHomePanel() {
+        // Remover todos los componentes del panel content
+        content.removeAll();
+        // Añadir el panel homePanel al panel content
+        content.add(HomePanel);
+        // Validar y repintar el panel content
+        content.revalidate();
+        content.repaint();
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -44,8 +59,8 @@ public class myLauncherBase extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        bg = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,8 +114,7 @@ public class myLauncherBase extends javax.swing.JFrame {
 
         mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
-        mainPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        content.setOpaque(false);
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -114,6 +128,9 @@ public class myLauncherBase extends javax.swing.JFrame {
         );
 
         mainPanel.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 1530, 860));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/FondoBase.png"))); // NOI18N
+        mainPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

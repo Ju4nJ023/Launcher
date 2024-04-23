@@ -45,6 +45,11 @@ public class myHomePanel extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 100, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton0.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel1);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton1.png"))); // NOI18N
@@ -79,6 +84,22 @@ public class myHomePanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        /**myGame page1 = new myGame();
+             
+            
+            // Obtener el panel p1 del Page1
+            JPanel p1 = page1.getPanelP1();
+
+            // Obtener el panel content del JFrame actual (HOME)
+            JPanel content = (JPanel) getContentPane().getComponent(1);
+        
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();*/
+    }//GEN-LAST:event_jLabel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

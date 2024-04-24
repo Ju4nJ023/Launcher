@@ -1,16 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package poyecto.rino;
 
 import javax.swing.Icon;
+import javax.swing.JPanel;
 
-/**
- *
- * @author omarmedina
- */
 public class myGamePanel extends javax.swing.JPanel {
+    public myLauncherBase parent;
 
     private int contador;
     private Icon[] Imagen;
@@ -18,13 +13,18 @@ public class myGamePanel extends javax.swing.JPanel {
     
     public myGamePanel() {
         initComponents();
+        
+    }
+
+    public JPanel getGamePanel() {
+        return GamePanel;
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        p1 = new javax.swing.JPanel();
+        GamePanel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -46,9 +46,10 @@ public class myGamePanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        p1.setBackground(new java.awt.Color(0, 39, 75));
-        p1.setPreferredSize(new java.awt.Dimension(1500, 800));
-        p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        GamePanel.setBackground(new java.awt.Color(0, 39, 75));
+        GamePanel.setMinimumSize(new java.awt.Dimension(1552, 880));
+        GamePanel.setPreferredSize(new java.awt.Dimension(1552, 880));
+        GamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setBackground(new java.awt.Color(0, 39, 75));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha derecha.png"))); // NOI18N
@@ -58,7 +59,7 @@ public class myGamePanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        p1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 140, 45, 43));
+        GamePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 140, 45, 43));
 
         jButton2.setBackground(new java.awt.Color(0, 39, 75));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
@@ -68,14 +69,14 @@ public class myGamePanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        p1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 44, 42));
+        GamePanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 44, 42));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(170, 227, 252)));
-        p1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 640, 290));
+        GamePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 640, 290));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
-        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 790, 200));
+        GamePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 790, 200));
 
         circulos.setOpaque(false);
 
@@ -149,7 +150,7 @@ public class myGamePanel extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        p1.add(circulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 490, 40));
+        GamePanel.add(circulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 490, 40));
 
         descripcion.setOpaque(false);
 
@@ -213,29 +214,29 @@ public class myGamePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        p1.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, 330));
+        GamePanel.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, 330));
 
         comenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
-        p1.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, 260, 50));
+        GamePanel.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, 260, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1500, Short.MAX_VALUE)
+            .addGap(0, 1552, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -285,6 +286,7 @@ public class myGamePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel GamePanel;
     private javax.swing.JLabel boton1;
     private javax.swing.JLabel boton2;
     private javax.swing.JLabel boton3;
@@ -303,7 +305,6 @@ public class myGamePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel p1;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarIndicadores() {

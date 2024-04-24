@@ -25,21 +25,9 @@ public class myLauncherBase extends javax.swing.JFrame {
         mainPanel.setCursor(customCursor);
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
      
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-       
-        executor.execute(() -> {
-            try { Thread.sleep(20);}
-            catch (InterruptedException e) {}
-            
-            myHomePanel home = new myHomePanel();
-            home.setSize(1530,860);
-            home.setLocation(0,0);  
-            home.parent=this;
-            //home.IniciarHome();
-            showHomePanel(home);
-        });
-        
-        executor.shutdown();
+           
+           createHomePanel();
+    
     }
     
      private void showHomePanel(myHomePanel home) {
@@ -48,6 +36,31 @@ public class myLauncherBase extends javax.swing.JFrame {
         showView.revalidate();
         showView.repaint();
     }
+     
+     private void showGamePanel (myGamePanel game) {
+        showView.removeAll();
+        showView.add(game, BorderLayout.CENTER);
+        showView.revalidate();
+        showView.repaint();
+     }
+     
+     public void createHomePanel () {         
+         myHomePanel home = new myHomePanel();
+            home.setSize(1530,860);
+            home.setLocation(0,0);  
+            home.parent=this;
+            showHomePanel(home);
+     } 
+     
+     public void createGamePanel () {
+         myGamePanel game = new myGamePanel();
+            game.setSize(1530,860);
+            game.setLocation(0,0);  
+            game.parent=this;
+            showGamePanel(game);
+         
+     }
+
     
 
     @SuppressWarnings("unchecked")
@@ -128,6 +141,7 @@ public class myLauncherBase extends javax.swing.JFrame {
         mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
 
         showView.setMaximumSize(new java.awt.Dimension(1552, 880));
+        showView.setOpaque(false);
         showView.setPreferredSize(new java.awt.Dimension(1552, 880));
 
         javax.swing.GroupLayout showViewLayout = new javax.swing.GroupLayout(showView);

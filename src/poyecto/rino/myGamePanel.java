@@ -1,6 +1,8 @@
 
 package poyecto.rino;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -9,30 +11,55 @@ import javax.swing.JPanel;
 
 public class myGamePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
- JLabel[] puntosFotos; 
-    private int contador;
-    private Icon[] Imagen;
-     public ArrayList<String> rutaFotos = new ArrayList<>();
-      public int indiceFotoActual = 0;   
+    
+    JLabel[] puntosFotos; 
+    public int indiceFotoActual = 0;   
+    private ImageIcon[] imagenesEmbarque;
 
     
     public myGamePanel() {
         initComponents();
-       
+        inicializarImagenesEmbarque(); 
+        inicializarPuntosFotos();
     }    
     
-    public void IniciarGame(){       
-        //Se aplica la foto actual
-        vistaFotos.setIcon(new ImageIcon(rutaFotos.get(indiceFotoActual)));
-        for(int i = 0; i < puntosFotos.length; i++)
-        {
-            if(i == indiceFotoActual)
-                CambiarPunto(puntosFotos[i], true);
-            else
-                CambiarPunto(puntosFotos[i], false);
+    private void inicializarImagenesEmbarque() {
+        imagenesEmbarque = new ImageIcon[]{
+            new ImageIcon(getClass().getResource("/imagesGame/Embarque0.png")),
+            new ImageIcon(getClass().getResource("/imagesGame/Embarque1.png")),
+            new ImageIcon(getClass().getResource("/imagesGame/Embarque2.png")),
+            new ImageIcon(getClass().getResource("/imagesGame/Embarque3.png")),
+            new ImageIcon(getClass().getResource("/imagesGame/Embarque4.png"))
+        };
+    }
+    
+    private void inicializarPuntosFotos() {
+        puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
+        for (int i = 0; i < puntosFotos.length; i++) {
+            final int index = i;
+            puntosFotos[i].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent evt) {
+                    botonMouseClicked(evt, index);
+                }
+            });
         }
+    }
+    
+    public void IniciarGame(){       
         
-      
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
+    }
+    
+    private void actualizarPuntos() {
+        for (int i = 0; i < puntosFotos.length; i++) {
+            if (i == indiceFotoActual) {
+                CambiarPunto(puntosFotos[i], true);
+            } else {
+                CambiarPunto(puntosFotos[i], false);
+            }
+        }
     }
     
     void CambiarPunto(JLabel punto, boolean filled)
@@ -44,11 +71,6 @@ public class myGamePanel extends javax.swing.JPanel {
     }
     
    
-
-    public JPanel getGamePanel() {
-        return GamePanel;
-    }
-//asdsasdasd
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,8 +93,8 @@ public class myGamePanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         comenzar = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        flechaIzq = new javax.swing.JButton();
+        flechaDer = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -237,25 +259,25 @@ public class myGamePanel extends javax.swing.JPanel {
         comenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
         GamePanel.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, 260, 50));
 
-        jButton2.setBackground(new java.awt.Color(0, 39, 75));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        flechaIzq.setBackground(new java.awt.Color(0, 39, 75));
+        flechaIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
+        flechaIzq.setBorderPainted(false);
+        flechaIzq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flechaIzqMouseClicked(evt);
             }
         });
-        GamePanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 44, -1));
+        GamePanel.add(flechaIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 44, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 39, 75));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha derecha.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        flechaDer.setBackground(new java.awt.Color(0, 39, 75));
+        flechaDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha derecha.png"))); // NOI18N
+        flechaDer.setBorderPainted(false);
+        flechaDer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flechaDerMouseClicked(evt);
             }
         });
-        GamePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 250, 45, 43));
+        GamePanel.add(flechaDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 250, 45, 43));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -280,48 +302,64 @@ public class myGamePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-
-        contador = 0;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
+        indiceFotoActual = 0;
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
-        contador = 1;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
+        indiceFotoActual = 1;
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
-        contador = 2;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
+        indiceFotoActual = 2;
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
-        contador = 3;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
+        indiceFotoActual = 3;
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
-        contador = 4;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
+        indiceFotoActual = 4;
+        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        actualizarPuntos();
     }//GEN-LAST:event_boton5MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        contador = (contador - 1 + 5) % 5;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void flechaIzqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzqMouseClicked
+        indiceFotoActual--;
+    if (indiceFotoActual < 0) {
+        indiceFotoActual = imagenesEmbarque.length - 1;
+    }
+    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+    actualizarIndicadores();
+    }//GEN-LAST:event_flechaIzqMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        contador = (contador + 1) % 5;
-        vistaFotos.setIcon(Imagen[contador]);
-        actualizarIndicadores();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void flechaDerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerMouseClicked
+        indiceFotoActual++;
+    if (indiceFotoActual >= imagenesEmbarque.length) {
+        indiceFotoActual = 0;
+    }
+    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+    actualizarIndicadores();
+    }//GEN-LAST:event_flechaDerMouseClicked
 
+    private void actualizarIndicadores() {
+        for (int i = 0; i < puntosFotos.length; i++) {
+        CambiarPunto(puntosFotos[i], i == indiceFotoActual);
+        }
+    }
+    
+    private void botonMouseClicked(java.awt.event.MouseEvent evt, int index) {                                    
+    indiceFotoActual = index;
+    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+    actualizarIndicadores();
+} 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GamePanel;
@@ -334,8 +372,8 @@ public class myGamePanel extends javax.swing.JPanel {
     private javax.swing.JPanel circulos;
     private javax.swing.JLabel comenzar;
     private javax.swing.JPanel descripcion;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton flechaDer;
+    private javax.swing.JButton flechaIzq;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -346,7 +384,4 @@ public class myGamePanel extends javax.swing.JPanel {
     private javax.swing.JLabel vistaFotos;
     // End of variables declaration//GEN-END:variables
 
-    private void actualizarIndicadores() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

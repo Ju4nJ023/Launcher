@@ -1,7 +1,7 @@
 
 package poyecto.rino;
 
-import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -9,47 +9,41 @@ import javax.swing.JPanel;
 
 public class myGamePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
-
+ JLabel[] puntosFotos; 
     private int contador;
     private Icon[] Imagen;
+     public ArrayList<String> rutaFotos = new ArrayList<>();
+      public int indiceFotoActual = 0;   
 
     
     public myGamePanel() {
         initComponents();
+       
+    }    
+    
+    public void IniciarGame(){       
+        //Se aplica la foto actual
+        vistaFotos.setIcon(new ImageIcon(rutaFotos.get(indiceFotoActual)));
+        for(int i = 0; i < puntosFotos.length; i++)
+        {
+            if(i == indiceFotoActual)
+                CambiarPunto(puntosFotos[i], true);
+            else
+                CambiarPunto(puntosFotos[i], false);
+        }
         
+      
     }
-    public static void SetImageLabel(JLabel label, String root){
-    ImageIcon originalIcon = new ImageIcon(root);
-
-    // Obtengo el tamaño máximo del JLabel
-    int labelWidth = label.getWidth();
-    int labelHeight = label.getHeight();
-
-    // Calcular el nuevo tamaño del Icon respetando las proporciones originales
-    int newWidth, newHeight;
-
-    //Obtenemos el ancho y alto originales del Icon dentro del JLabel
-    int originalWidth = originalIcon.getIconWidth();
-    int originalHeight = originalIcon.getIconHeight();
-
-    //Obtenemos el factor de escala, por ejemplo si el ancho del label es 1 y el del icon es 0.5, el factor de escalado es 2.
-    double widthRatio = (double) labelWidth / (double) originalWidth;
-    double heightRatio = (double) labelHeight / (double) originalHeight;
-
-    // Usar el ratio más pequeño para asegurarse de que el Icon encaje completamente en el JLabel
-    double scaleFactor = Math.min(widthRatio, heightRatio);
-
-    newWidth = (int) (originalWidth * scaleFactor);
-    newHeight = (int) (originalHeight * scaleFactor);
-
-    // Escalar el Icon
-    Image scaledImage = originalIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-    //Le aplicamos al label el nuevo ícono y lo repintamos...
-    label.setIcon(scaledIcon);
-    label.repaint();
-}
+    
+    void CambiarPunto(JLabel punto, boolean filled)
+    {
+        if(filled)
+            punto.setIcon(new ImageIcon("src/pics/PuntoCarruselFilled.png"));
+        else
+            punto.setIcon(new ImageIcon("src/pics/PuntoCarruselEmpty.png"));
+    }
+    
+   
 
     public JPanel getGamePanel() {
         return GamePanel;
@@ -60,7 +54,7 @@ public class myGamePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         GamePanel = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        vistaFotos = new javax.swing.JLabel();
         vistaFoto1 = new javax.swing.JLabel();
         VistaFoto2 = new javax.swing.JLabel();
         circulos = new javax.swing.JPanel();
@@ -87,21 +81,20 @@ public class myGamePanel extends javax.swing.JPanel {
         GamePanel.setPreferredSize(new java.awt.Dimension(1552, 880));
         GamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Embarque0.png"))); // NOI18N
-        jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(170, 227, 252)));
-        jLabel6.setPreferredSize(new java.awt.Dimension(891, 526));
-        GamePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, -1, -1));
+        vistaFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vistaFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Embarque0.png"))); // NOI18N
+        vistaFotos.setPreferredSize(new java.awt.Dimension(891, 526));
+        GamePanel.add(vistaFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, -1));
 
         vistaFoto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vistaFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
         vistaFoto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        GamePanel.add(vistaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 810, 460));
+        GamePanel.add(vistaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 840, 460));
 
         VistaFoto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         VistaFoto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
         VistaFoto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        GamePanel.add(VistaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 810, 460));
+        GamePanel.add(VistaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 810, 460));
 
         circulos.setOpaque(false);
 
@@ -262,7 +255,7 @@ public class myGamePanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        GamePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 250, 45, 43));
+        GamePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 250, 45, 43));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -289,43 +282,43 @@ public class myGamePanel extends javax.swing.JPanel {
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
 
         contador = 0;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
         contador = 1;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         contador = 2;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
         contador = 3;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
         contador = 4;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_boton5MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         contador = (contador - 1 + 5) % 5;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         contador = (contador + 1) % 5;
-        jLabel6.setIcon(Imagen[contador]);
+        vistaFotos.setIcon(Imagen[contador]);
         actualizarIndicadores();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -347,10 +340,10 @@ public class myGamePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel vistaFoto1;
+    private javax.swing.JLabel vistaFotos;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarIndicadores() {

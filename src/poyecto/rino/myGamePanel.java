@@ -12,65 +12,83 @@ import javax.swing.JPanel;
 public class myGamePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
     
+    int myGame;
     JLabel[] puntosFotos; 
     public int indiceFotoActual = 0;   
-    private ImageIcon[] imagenesEmbarque;
-
+    private ImageIcon[][] imagenes;
+    private String[] labels = {"embarque","protocolo", "maniobras", "tipologia", "señalizacion", "rescate"};
+    private int indiceLabelActual = 0;
     
-    public myGamePanel() {
+    public String juegoTitulo = "Descripción";
+    public String juegoDescripcion = 
+            "<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<br>"
+            + "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>"
+            + "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>"
+            + "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>";
+    
+    
+    public myGamePanel(int gameIndex) {
         initComponents();
-        inicializarImagenesEmbarque(); 
-        inicializarPuntosFotos();
+        myGame=gameIndex;
+        //actualizarDebugText();
+        puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
     }    
     
-    private void inicializarImagenesEmbarque() {
-        imagenesEmbarque = new ImageIcon[]{
-            new ImageIcon(getClass().getResource("/imagesGame/Embarque0.png")),
-            new ImageIcon(getClass().getResource("/imagesGame/Embarque1.png")),
-            new ImageIcon(getClass().getResource("/imagesGame/Embarque2.png")),
-            new ImageIcon(getClass().getResource("/imagesGame/Embarque3.png")),
-            new ImageIcon(getClass().getResource("/imagesGame/Embarque4.png"))
-        };
-    }
-    
-    private void inicializarPuntosFotos() {
-        puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
-        for (int i = 0; i < puntosFotos.length; i++) {
-            final int index = i;
-            puntosFotos[i].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent evt) {
-                    botonMouseClicked(evt, index);
-                }
-            });
+    public void cargarImagenesCategoria(String categoria) {
+        imagenes = new ImageIcon[5][5];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                String path = String.format("/imagesGame/%s%d.png", categoria, j);
+                imagenes[i][j] = new ImageIcon(getClass().getResource(path));
+            }
         }
-    }
-    
-    public void IniciarGame(){       
-        
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        indiceFotoActual = 0;
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
+    }
+
+    public void IniciarGame(){       
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        
+        //Cambia los textos
+        text_title.setText(juegoTitulo);
+        text_description.setText(juegoDescripcion);
     }
     
     private void actualizarPuntos() {
-        for (int i = 0; i < puntosFotos.length; i++) {
-            if (i == indiceFotoActual) {
-                CambiarPunto(puntosFotos[i], true);
-            } else {
-                CambiarPunto(puntosFotos[i], false);
-            }
+       for (int i = 0; i < puntosFotos.length; i++) {
+        if (i == indiceFotoActual) {
+            puntosFotos[i].setIcon(new ImageIcon("src/imagesGame/PuntoCarruselFilled.png"));
+        } else {
+            puntosFotos[i].setIcon(new ImageIcon("src/imagesGame/PuntoCarruselEmpty.png"));
+        }
+      }
+    }
+    
+    public void actualizarImagenes(String categoria) {
+    // Encuentra el índice de la categoría seleccionada
+    int indiceCategoria = -1;
+    for (int i = 0; i < labels.length; i++) {
+        if (labels[i].equals(categoria)) {
+            indiceCategoria = i;
+            break;
         }
     }
-    
-    void CambiarPunto(JLabel punto, boolean filled)
-    {
-        if(filled)
-            punto.setIcon(new ImageIcon("src/pics/PuntoCarruselFilled.png"));
-        else
-            punto.setIcon(new ImageIcon("src/pics/PuntoCarruselEmpty.png"));
+    // Actualiza las imágenes del carrusel
+    if (indiceCategoria != -1) {
+        indiceLabelActual = indiceCategoria;
+        indiceFotoActual = 0;
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        actualizarPuntos();
+    } else {
+        // Manejar el caso de categoría no encontrada
     }
+}
     
-   
+    /**public void actualizarDebugText(){
+        String myGameIndex= String.valueOf(myGame);
+        //debugText.setText(myGameIndex);
+    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,12 +104,8 @@ public class myGamePanel extends javax.swing.JPanel {
         boton4 = new javax.swing.JLabel();
         boton5 = new javax.swing.JLabel();
         descripcion = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        text_title = new javax.swing.JLabel();
+        text_description = new javax.swing.JLabel();
         comenzar = new javax.swing.JLabel();
         flechaIzq = new javax.swing.JButton();
         flechaDer = new javax.swing.JButton();
@@ -106,16 +120,14 @@ public class myGamePanel extends javax.swing.JPanel {
         vistaFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vistaFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Embarque0.png"))); // NOI18N
         vistaFotos.setPreferredSize(new java.awt.Dimension(891, 526));
-        GamePanel.add(vistaFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, -1, -1));
+        GamePanel.add(vistaFotos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, -1, -1));
 
         vistaFoto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vistaFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
-        vistaFoto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         GamePanel.add(vistaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 840, 460));
 
         VistaFoto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         VistaFoto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Cuadrado.png"))); // NOI18N
-        VistaFoto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         GamePanel.add(VistaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 810, 460));
 
         circulos.setOpaque(false);
@@ -165,7 +177,7 @@ public class myGamePanel extends javax.swing.JPanel {
         circulosLayout.setHorizontalGroup(
             circulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(circulosLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(25, 25, 25)
                 .addComponent(boton1)
                 .addGap(18, 18, 18)
                 .addComponent(boton2)
@@ -190,74 +202,41 @@ public class myGamePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        GamePanel.add(circulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 530, 330, 30));
+        GamePanel.add(circulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 200, 30));
 
         descripcion.setOpaque(false);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Barrita aislada descripci¢n.png"))); // NOI18N
+        text_title.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        text_title.setForeground(new java.awt.Color(255, 255, 255));
+        text_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Barrita aislada descripci¢n.png"))); // NOI18N
+        text_title.setText("DESCRIPCIÓN");
 
-        jLabel9.setFont(new java.awt.Font("Raleway", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Embarque y desembarque en helicóptero");
-
-        jLabel10.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula nisl id leo convallis, id congue tortor malesuada.");
-        jLabel10.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jLabel11.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Duis ac aliquet nunc. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.");
-
-        jLabel12.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("\nExcepteur sint occaecat cunidatat non broident. sunt in culpa aut otticia deserunt mollit anim id est laborum.");
-
-        jLabel13.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+        text_description.setText("jLabel1");
 
         javax.swing.GroupLayout descripcionLayout = new javax.swing.GroupLayout(descripcion);
         descripcion.setLayout(descripcionLayout);
         descripcionLayout.setHorizontalGroup(
             descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(descripcionLayout.createSequentialGroup()
-                .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addGroup(descripcionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(descripcionLayout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9))
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel13))))
+                .addContainerGap()
+                .addComponent(text_title, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(362, Short.MAX_VALUE))
+            .addGroup(descripcionLayout.createSequentialGroup()
+                .addComponent(text_description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         descripcionLayout.setVerticalGroup(
             descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(descripcionLayout.createSequentialGroup()
-                .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(81, 81, 81)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
+                .addComponent(text_title)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addContainerGap())
+                .addComponent(text_description, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
         );
 
-        GamePanel.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, 330));
+        GamePanel.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, -1, 190));
 
         comenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
-        GamePanel.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, 260, 50));
+        GamePanel.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 780, 260, 50));
 
         flechaIzq.setBackground(new java.awt.Color(0, 39, 75));
         flechaIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Flecha izquierda.png"))); // NOI18N
@@ -303,63 +282,57 @@ public class myGamePanel extends javax.swing.JPanel {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         indiceFotoActual = 0;
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
         indiceFotoActual = 1;
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         indiceFotoActual = 2;
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
         indiceFotoActual = 3;
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
         indiceFotoActual = 4;
-        vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         actualizarPuntos();
     }//GEN-LAST:event_boton5MouseClicked
 
     private void flechaIzqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzqMouseClicked
         indiceFotoActual--;
     if (indiceFotoActual < 0) {
-        indiceFotoActual = imagenesEmbarque.length - 1;
+        indiceFotoActual = imagenes[indiceLabelActual].length - 1;
     }
-    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
-    actualizarIndicadores();
+    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+    actualizarPuntos();
     }//GEN-LAST:event_flechaIzqMouseClicked
 
     private void flechaDerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerMouseClicked
         indiceFotoActual++;
-    if (indiceFotoActual >= imagenesEmbarque.length) {
+    if (indiceFotoActual >= imagenes[indiceLabelActual].length) {
         indiceFotoActual = 0;
     }
-    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
-    actualizarIndicadores();
+    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+    actualizarPuntos();
     }//GEN-LAST:event_flechaDerMouseClicked
 
-    private void actualizarIndicadores() {
-        for (int i = 0; i < puntosFotos.length; i++) {
-        CambiarPunto(puntosFotos[i], i == indiceFotoActual);
-        }
-    }
-    
     private void botonMouseClicked(java.awt.event.MouseEvent evt, int index) {                                    
     indiceFotoActual = index;
-    vistaFotos.setIcon(imagenesEmbarque[indiceFotoActual]);
-    actualizarIndicadores();
-} 
+    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+    actualizarPuntos();
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GamePanel;
@@ -374,12 +347,8 @@ public class myGamePanel extends javax.swing.JPanel {
     private javax.swing.JPanel descripcion;
     private javax.swing.JButton flechaDer;
     private javax.swing.JButton flechaIzq;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel text_description;
+    private javax.swing.JLabel text_title;
     private javax.swing.JLabel vistaFoto1;
     private javax.swing.JLabel vistaFotos;
     // End of variables declaration//GEN-END:variables

@@ -10,7 +10,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.swing.JPanel;
 
+
 public class myLauncherBase extends javax.swing.JFrame {
+    
+    int currentGrado;
+    int currentGame;
 
     public myLauncherBase() {
         initComponents();
@@ -26,63 +30,68 @@ public class myLauncherBase extends javax.swing.JFrame {
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
      
            
-           createHomePanel();
-    
+           myHomePanel home=createHomePanel(0);
+           showHomePanel(home);
     }
-    
-     private void showHomePanel(myHomePanel home) {
+  
+     public void showHomePanel(myHomePanel home) { 
         showView.removeAll();
         showView.add(home, BorderLayout.CENTER);
         showView.revalidate();
         showView.repaint();
     }
      
-     private void showGamePanel (myGamePanel game) {
+     public void showGamePanel (myGamePanel game) {
         showView.removeAll();
         showView.add(game, BorderLayout.CENTER);
         showView.revalidate();
         showView.repaint();
      }
      
-     public void createHomePanel () {         
+     public myHomePanel createHomePanel (int indiceGrado) {         
          myHomePanel home = new myHomePanel();
             home.setSize(1530,860);
             home.setLocation(0,0);  
             home.parent=this;
-            showHomePanel(home);
+            home.myGrado=indiceGrado;
+            return home;
      } 
      
-     public void createGamePanel () {
-         myGamePanel game = new myGamePanel();
-            game.setSize(1530,860);
-            game.setLocation(0,0);  
-            game.parent=this;
-            showGamePanel(game);
-         
-     }
+     public myGamePanel createGamePanel(int indiceGame) {
+         myGamePanel game = new myGamePanel(indiceGame);
+         game.setSize(1530, 860);
+         game.setLocation(0, 0);
+         game.parent = this;
+        
+         return game;
+}  
 
-    
+     /**private void mostrarHomePanel(int indiceHome) {
+    myHomePanel home = createHomePanel(indiceHome);
+    showHomePanel(home);
+}*/
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        inicio = new javax.swing.JLabel();
         toolBar = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        toolBar1 = new javax.swing.JLabel();
+        toolBar2 = new javax.swing.JLabel();
+        toolBar3 = new javax.swing.JLabel();
+        toolBar4 = new javax.swing.JLabel();
+        toolBar5 = new javax.swing.JLabel();
+        toolBar6 = new javax.swing.JLabel();
+        toolBar7 = new javax.swing.JLabel();
+        toolBar8 = new javax.swing.JLabel();
+        toolBar9 = new javax.swing.JLabel();
+        toolBar10 = new javax.swing.JLabel();
+        toolBar11 = new javax.swing.JLabel();
+        toolBar12 = new javax.swing.JLabel();
+        toolBar13 = new javax.swing.JLabel();
+        toolBar14 = new javax.swing.JLabel();
         showView = new javax.swing.JPanel();
         bg = new javax.swing.JLabel();
 
@@ -94,49 +103,77 @@ public class myLauncherBase extends javax.swing.JFrame {
         mainPanel.setSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        inicio.setDoubleBuffered(true);
+        inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicioMouseClicked(evt);
+            }
+        });
+        mainPanel.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 140, 140));
+
         toolBar.setOpaque(false);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
-        toolBar.add(jLabel16);
+        toolBar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
+        toolBar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar1MouseClicked(evt);
+            }
+        });
+        toolBar.add(toolBar1);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
-        toolBar.add(jLabel17);
+        toolBar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
+        toolBar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar2MouseClicked(evt);
+            }
+        });
+        toolBar.add(toolBar2);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
-        toolBar.add(jLabel18);
+        toolBar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
+        toolBar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar3MouseClicked(evt);
+            }
+        });
+        toolBar.add(toolBar3);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
-        toolBar.add(jLabel19);
+        toolBar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
+        toolBar4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar4MouseClicked(evt);
+            }
+        });
+        toolBar.add(toolBar4);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
-        toolBar.add(jLabel20);
+        toolBar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
+        toolBar.add(toolBar5);
 
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
-        toolBar.add(jLabel21);
+        toolBar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
+        toolBar.add(toolBar6);
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
-        toolBar.add(jLabel22);
+        toolBar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
+        toolBar.add(toolBar7);
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
-        toolBar.add(jLabel23);
+        toolBar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
+        toolBar.add(toolBar8);
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
-        toolBar.add(jLabel24);
+        toolBar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
+        toolBar.add(toolBar9);
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
-        toolBar.add(jLabel25);
+        toolBar10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
+        toolBar.add(toolBar10);
 
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
-        toolBar.add(jLabel26);
+        toolBar11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
+        toolBar.add(toolBar11);
 
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
-        toolBar.add(jLabel27);
+        toolBar12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
+        toolBar.add(toolBar12);
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
-        toolBar.add(jLabel28);
+        toolBar13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
+        toolBar.add(toolBar13);
 
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
-        toolBar.add(jLabel29);
+        toolBar14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
+        toolBar.add(toolBar14);
 
         mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
 
@@ -179,6 +216,74 @@ public class myLauncherBase extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
+        myHomePanel home = createHomePanel(0);
+        showHomePanel(home);
+    }//GEN-LAST:event_inicioMouseClicked
+
+    private void toolBarXMouseClicked(java.awt.event.MouseEvent evt, int homeIndex) {                                      
+    myHomePanel home = createHomePanel(homeIndex);
+    showHomePanel(home); // Mostrar el panel de inicio creado
+}
+    
+    private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
+        toolBarXMouseClicked(evt, 1);
+        //createHomePanel(1);
+    }//GEN-LAST:event_toolBar1MouseClicked
+
+    private void toolBar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar2MouseClicked
+        toolBarXMouseClicked(evt, 2);
+       // createHomePanel(2);
+    }//GEN-LAST:event_toolBar2MouseClicked
+
+    private void toolBar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar3MouseClicked
+        createHomePanel(3);
+    }//GEN-LAST:event_toolBar3MouseClicked
+
+    private void toolBar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar4MouseClicked
+        createHomePanel(4);
+    }//GEN-LAST:event_toolBar4MouseClicked
+
+    private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(5);
+    }                                     
+
+    private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(6);
+    }                                     
+
+    private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(7);
+    }                                     
+
+    private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(8);
+    }   
+    
+    private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(9);
+    }                                     
+
+    private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(10);
+    }                                     
+
+    private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(11);
+    }                                     
+
+    private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(12);
+    }   
+    
+    private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(13);
+    }                                     
+
+    private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        createHomePanel(14);
+    }                                     
+    
     /**
      * @param args the command line arguments
      */
@@ -216,22 +321,23 @@ public class myLauncherBase extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel inicio;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel showView;
     private javax.swing.JPanel toolBar;
+    private javax.swing.JLabel toolBar1;
+    private javax.swing.JLabel toolBar10;
+    private javax.swing.JLabel toolBar11;
+    private javax.swing.JLabel toolBar12;
+    private javax.swing.JLabel toolBar13;
+    private javax.swing.JLabel toolBar14;
+    private javax.swing.JLabel toolBar2;
+    private javax.swing.JLabel toolBar3;
+    private javax.swing.JLabel toolBar4;
+    private javax.swing.JLabel toolBar5;
+    private javax.swing.JLabel toolBar6;
+    private javax.swing.JLabel toolBar7;
+    private javax.swing.JLabel toolBar8;
+    private javax.swing.JLabel toolBar9;
     // End of variables declaration//GEN-END:variables
 }

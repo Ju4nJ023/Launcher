@@ -4,6 +4,7 @@ package poyecto.rino;
 import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
 import javax.swing.JPanel;
 
 public class myHomePanel extends javax.swing.JPanel {
@@ -21,17 +22,14 @@ public class myHomePanel extends javax.swing.JPanel {
      public myHomePanel(int homeIndex) {
         initComponents();
         myGrado = homeIndex;
-        actualizarDebugText();
-        //parent.currentGrado=myGrado;
         
-    dimensionMiniaturasMax = new Dimension(476, 363);
-    dimensionOriginal = new Dimension(381, 291);  
-    
+        dimensionMiniaturasMax = new Dimension(476, 363);
+        dimensionOriginal = new Dimension(381, 291);  
     }
      
-    public void actualizarDebugText(){
-        String myGradoIndex= String.valueOf(myGrado);
-        debugText.setText(myGradoIndex);
+  public void actualizarDebugText(){
+        String n=parent.NombreGrado(myGrado);
+        debugText.setText(n);
     }
 
     @SuppressWarnings("unchecked")
@@ -58,25 +56,18 @@ public class myHomePanel extends javax.swing.JPanel {
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
 
-        debugText.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        debugText.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         debugText.setForeground(new java.awt.Color(255, 255, 255));
-        debugText.setText("GRADO EN AAA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(debugText, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(debugText, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(debugText)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(debugText, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
         HomePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 60));
@@ -209,38 +200,37 @@ public class myHomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        myGamePanel game=parent.createGamePanel(0);
+        myGamePanel game=parent.createGamePanel(0, "Embarque y desembarque en helicóptero");
         game.cargarImagenesCategoria("Embarque");
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
-        myGamePanel game=parent.createGamePanel(1);
+        myGamePanel game=parent.createGamePanel(1, "Protocolo ante una hemorragia externa");
         game.cargarImagenesCategoria("Hemorragia");
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
-        myGamePanel game=parent.createGamePanel(2);
+        myGamePanel game=parent.createGamePanel(2, "Maniobras de extinción según la instalación");
         game.cargarImagenesCategoria("Extincion");
         parent.showGamePanel(game);
-        
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
-        myGamePanel game=parent.createGamePanel(3);
+        myGamePanel game=parent.createGamePanel(3, "Tipología y características de los EPIs");
         game.cargarImagenesCategoria("EPIS");
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
-        myGamePanel game=parent.createGamePanel(4);
+        myGamePanel game=parent.createGamePanel(4, "Señalización a helicóptero desde tierra");
         game.cargarImagenesCategoria("Helicoptero");
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton5MouseClicked
 
     private void boton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton6MouseClicked
-        myGamePanel game=parent.createGamePanel(5);
+        myGamePanel game=parent.createGamePanel(5, "Rescate en ascensor");
         game.cargarImagenesCategoria("Ascensor");
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton6MouseClicked

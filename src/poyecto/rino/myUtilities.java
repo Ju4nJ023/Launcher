@@ -87,11 +87,12 @@ public class myUtilities {
     }
     
     //JSON
-    private static final String JSON_FILE_PATH = "src/Launcher/BaseDeDatos.json";
+    private static final String JSON_FILE_PATH = "src/db/BaseDeDatos.json";
     
     public static String NombreGrado(int indexGrado) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH))) //Lee el json con BufferedReader
+        String Path="db/BaseDeDatos.json";
+        try (BufferedReader br = new BufferedReader(new FileReader(Path))) //Lee el json con BufferedReader
         {
             //Convierte la lectura del json en un string con StringBuilder
             StringBuilder sb = new StringBuilder();

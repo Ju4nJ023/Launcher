@@ -83,8 +83,9 @@
             <Component class="javax.swing.JLabel" name="toolBar1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton0.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton8.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar1MouseClicked"/>
@@ -93,8 +94,9 @@
             <Component class="javax.swing.JLabel" name="toolBar2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton1.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton0.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar2MouseClicked"/>
@@ -103,8 +105,9 @@
             <Component class="javax.swing.JLabel" name="toolBar3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton2.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton1.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar3MouseClicked"/>
@@ -113,8 +116,9 @@
             <Component class="javax.swing.JLabel" name="toolBar4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton3.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton2.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar4MouseClicked"/>
@@ -123,72 +127,112 @@
             <Component class="javax.swing.JLabel" name="toolBar5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton4.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton3.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar5MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton5.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton4.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar6MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton6.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton5.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar7MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar8">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton7.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton6.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar8MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton13.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton7.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar9MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar10">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton9.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton13.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar10MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar11">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton10.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton9.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar11MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar12">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton11.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton10.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar12MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar13">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton12.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton11.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar13MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="toolBar14">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesBase/LauncherButton8.png"/>
+                  <Image iconType="3" name="/imagesBase/LauncherButton12.png"/>
                 </Property>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toolBar14MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

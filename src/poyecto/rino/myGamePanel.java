@@ -27,11 +27,16 @@ public class myGamePanel extends javax.swing.JPanel {
             + "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>";
     
     
-    public myGamePanel(int gameIndex) {
+    public myGamePanel(int gameIndex, String tituloJuego) {
         initComponents();
         myGame=gameIndex;
-        //actualizarDebugText();
+        
+       /** String n=String.valueOf(myGame);
+        debugText.setText(n);*/
+        
         puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
+        juegoTitulo = tituloJuego;
+        text_title.setText(juegoTitulo);
     }    
     
     public void cargarImagenesCategoria(String categoria) {
@@ -220,12 +225,9 @@ public class myGamePanel extends javax.swing.JPanel {
         descripcionLayout.setHorizontalGroup(
             descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(descripcionLayout.createSequentialGroup()
-                .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text_description, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
-                    .addGroup(descripcionLayout.createSequentialGroup()
-                        .addComponent(text_title, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(text_description, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(text_title, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         descripcionLayout.setVerticalGroup(
             descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

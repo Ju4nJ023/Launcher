@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -31,7 +32,9 @@ public class myLauncherBase extends javax.swing.JFrame {
      
            
            myHomePanel home=createHomePanel(0);
+           
            showHomePanel(home);
+
     }
   
      public void showHomePanel(myHomePanel home) { 
@@ -57,19 +60,50 @@ public class myLauncherBase extends javax.swing.JFrame {
             return home;
      } 
      
-     public myGamePanel createGamePanel(int indiceGame) {
-         myGamePanel game = new myGamePanel(indiceGame);
+     public myGamePanel createGamePanel(int indiceGame, String tituloJuego) {
+         myGamePanel game = new myGamePanel(indiceGame, tituloJuego);
          game.setSize(1530, 860);
          game.setLocation(0, 0);
          game.parent = this;
         
          return game;
 }  
-
-     /**private void mostrarHomePanel(int indiceHome) {
-    myHomePanel home = createHomePanel(indiceHome);
-    showHomePanel(home);
-}*/
+     
+     public String NombreGrado(int indiceGrado) {
+    switch (indiceGrado) {
+        case 1:
+            return "Grado 1";
+        case 2:
+            return "Grado 2";
+        case 3:
+            return "Grado 3";
+        case 4:
+            return "Grado 4";
+        case 5:
+            return "Grado 5";
+        case 6:
+            return "Grado 6"; 
+        case 7:
+            return "Grado 7"; 
+        case 8:
+            return "Grado 8"; 
+        case 9:
+            return "Grado 9"; 
+        case 10:
+            return "Grado 10"; 
+        case 11:
+            return "Grado 11";     
+        case 12:
+            return "Grado 12";
+        case 13:
+            return "Grado 13";
+        case 14:
+            return "Grado 14";
+        default:
+            return "Otro Grado";    
+            
+    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -113,7 +147,8 @@ public class myLauncherBase extends javax.swing.JFrame {
 
         toolBar.setOpaque(false);
 
-        toolBar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
+        toolBar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
+        toolBar1.setDoubleBuffered(true);
         toolBar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 toolBar1MouseClicked(evt);
@@ -121,7 +156,8 @@ public class myLauncherBase extends javax.swing.JFrame {
         });
         toolBar.add(toolBar1);
 
-        toolBar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
+        toolBar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton0.png"))); // NOI18N
+        toolBar2.setDoubleBuffered(true);
         toolBar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 toolBar2MouseClicked(evt);
@@ -129,7 +165,8 @@ public class myLauncherBase extends javax.swing.JFrame {
         });
         toolBar.add(toolBar2);
 
-        toolBar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
+        toolBar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton1.png"))); // NOI18N
+        toolBar3.setDoubleBuffered(true);
         toolBar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 toolBar3MouseClicked(evt);
@@ -137,7 +174,8 @@ public class myLauncherBase extends javax.swing.JFrame {
         });
         toolBar.add(toolBar3);
 
-        toolBar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
+        toolBar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton2.png"))); // NOI18N
+        toolBar4.setDoubleBuffered(true);
         toolBar4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 toolBar4MouseClicked(evt);
@@ -145,34 +183,94 @@ public class myLauncherBase extends javax.swing.JFrame {
         });
         toolBar.add(toolBar4);
 
-        toolBar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
+        toolBar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton3.png"))); // NOI18N
+        toolBar5.setDoubleBuffered(true);
+        toolBar5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar5MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar5);
 
-        toolBar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
+        toolBar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton4.png"))); // NOI18N
+        toolBar6.setDoubleBuffered(true);
+        toolBar6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar6MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar6);
 
-        toolBar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
+        toolBar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton5.png"))); // NOI18N
+        toolBar7.setDoubleBuffered(true);
+        toolBar7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar7MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar7);
 
-        toolBar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
+        toolBar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton6.png"))); // NOI18N
+        toolBar8.setDoubleBuffered(true);
+        toolBar8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar8MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar8);
 
-        toolBar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
+        toolBar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton7.png"))); // NOI18N
+        toolBar9.setDoubleBuffered(true);
+        toolBar9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar9MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar9);
 
-        toolBar10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
+        toolBar10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton13.png"))); // NOI18N
+        toolBar10.setDoubleBuffered(true);
+        toolBar10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar10MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar10);
 
-        toolBar11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
+        toolBar11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton9.png"))); // NOI18N
+        toolBar11.setDoubleBuffered(true);
+        toolBar11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar11MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar11);
 
-        toolBar12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
+        toolBar12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton10.png"))); // NOI18N
+        toolBar12.setDoubleBuffered(true);
+        toolBar12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar12MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar12);
 
-        toolBar13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
+        toolBar13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton11.png"))); // NOI18N
+        toolBar13.setDoubleBuffered(true);
+        toolBar13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar13MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar13);
 
-        toolBar14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton8.png"))); // NOI18N
+        toolBar14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesBase/LauncherButton12.png"))); // NOI18N
+        toolBar14.setDoubleBuffered(true);
+        toolBar14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toolBar14MouseClicked(evt);
+            }
+        });
         toolBar.add(toolBar14);
 
         mainPanel.add(toolBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 1510, -1));
@@ -221,69 +319,73 @@ public class myLauncherBase extends javax.swing.JFrame {
         showHomePanel(home);
     }//GEN-LAST:event_inicioMouseClicked
 
-    private void toolBarXMouseClicked(java.awt.event.MouseEvent evt, int homeIndex) {                                      
-    myHomePanel home = createHomePanel(homeIndex);
-    showHomePanel(home); // Mostrar el panel de inicio creado
-}
+    private void createNewHomePanel(int indiceGrado) {                                      
+    myHomePanel home = createHomePanel(indiceGrado);
+    home.actualizarDebugText();
     
-    private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
-        toolBarXMouseClicked(evt, 1);
-        //createHomePanel(1);
-    }//GEN-LAST:event_toolBar1MouseClicked
+    showHomePanel(home);
 
+    /**JLabel clickedLabel = (JLabel) evt.getSource();
+    String labelText = clickedLabel.getText();
+
+    home.actualizarDebugText(labelText);*/
+}
     private void toolBar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar2MouseClicked
-        toolBarXMouseClicked(evt, 2);
-       // createHomePanel(2);
+        createNewHomePanel(2);
     }//GEN-LAST:event_toolBar2MouseClicked
 
     private void toolBar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar3MouseClicked
-        createHomePanel(3);
+        createNewHomePanel(3);
     }//GEN-LAST:event_toolBar3MouseClicked
 
     private void toolBar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar4MouseClicked
-        createHomePanel(4);
+        createNewHomePanel(4);
     }//GEN-LAST:event_toolBar4MouseClicked
 
-    private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(5);
-    }                                     
+    private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar5MouseClicked
+        createNewHomePanel(5);
+    }//GEN-LAST:event_toolBar5MouseClicked
 
-    private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(6);
-    }                                     
+    private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
+        createNewHomePanel(1);
+    }//GEN-LAST:event_toolBar1MouseClicked
 
-    private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(7);
-    }                                     
+    private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar6MouseClicked
+        createNewHomePanel(6);
+    }//GEN-LAST:event_toolBar6MouseClicked
 
-    private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(8);
-    }   
-    
-    private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(9);
-    }                                     
+    private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar7MouseClicked
+        createNewHomePanel(7);
+    }//GEN-LAST:event_toolBar7MouseClicked
 
-    private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(10);
-    }                                     
+    private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar8MouseClicked
+        createNewHomePanel(8);
+    }//GEN-LAST:event_toolBar8MouseClicked
 
-    private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(11);
-    }                                     
+    private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar9MouseClicked
+        createNewHomePanel(9);
+    }//GEN-LAST:event_toolBar9MouseClicked
 
-    private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(12);
-    }   
-    
-    private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(13);
-    }                                     
+    private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar10MouseClicked
+        createNewHomePanel(10);
+    }//GEN-LAST:event_toolBar10MouseClicked
 
-    private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        createHomePanel(14);
-    }                                     
-    
+    private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar11MouseClicked
+        createNewHomePanel(11);
+    }//GEN-LAST:event_toolBar11MouseClicked
+
+    private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar12MouseClicked
+        createNewHomePanel(12);
+    }//GEN-LAST:event_toolBar12MouseClicked
+
+    private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar13MouseClicked
+        createNewHomePanel(13);
+    }//GEN-LAST:event_toolBar13MouseClicked
+
+    private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar14MouseClicked
+        createNewHomePanel(14);
+    }//GEN-LAST:event_toolBar14MouseClicked
+  
     /**
      * @param args the command line arguments
      */

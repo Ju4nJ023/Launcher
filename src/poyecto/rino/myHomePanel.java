@@ -120,9 +120,8 @@ public class myHomePanel extends javax.swing.JPanel {
         jPanel1.add(boton2);
 
         boton3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton3.png"))); // NOI18N
+        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton2.png"))); // NOI18N
         boton3.setDoubleBuffered(true);
-        boton3.setMaximumSize(new java.awt.Dimension(517, 440));
         boton3.setPreferredSize(new java.awt.Dimension(517, 440));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,8 +137,9 @@ public class myHomePanel extends javax.swing.JPanel {
         jPanel1.add(boton3);
 
         boton4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton2.png"))); // NOI18N
+        boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/HomeButton3.png"))); // NOI18N
         boton4.setDoubleBuffered(true);
+        boton4.setMaximumSize(new java.awt.Dimension(517, 440));
         boton4.setPreferredSize(new java.awt.Dimension(517, 440));
         boton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -220,18 +220,18 @@ public class myHomePanel extends javax.swing.JPanel {
         parent.showGamePanel(game);
     }//GEN-LAST:event_boton2MouseClicked
 
-    private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
+    private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         myGamePanel game=parent.createGamePanel(2);
         game.cargarImagenesCategoria("Extincion");
         parent.showGamePanel(game);
         
-    }//GEN-LAST:event_boton4MouseClicked
+    }//GEN-LAST:event_boton3MouseClicked
 
-    private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
+    private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
         myGamePanel game=parent.createGamePanel(3);
         game.cargarImagenesCategoria("EPIS");
         parent.showGamePanel(game);
-    }//GEN-LAST:event_boton3MouseClicked
+    }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
         myGamePanel game=parent.createGamePanel(4);
@@ -261,14 +261,6 @@ public class myHomePanel extends javax.swing.JPanel {
         myUtilities.SetImageLabel(boton2, "src/imagesHome/HomeButton1.png", dimensionOriginal);
     }//GEN-LAST:event_boton2MouseExited
 
-    private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered
-        myUtilities.SetImageLabel(boton3, "src/imagesHome/HomeButton2.png", dimensionMiniaturasMax);
-    }//GEN-LAST:event_boton3MouseEntered
-
-    private void boton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseExited
-        myUtilities.SetImageLabel(boton3, "src/imagesHome/HomeButton2.png", dimensionOriginal);
-    }//GEN-LAST:event_boton3MouseExited
-
     private void boton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseEntered
         myUtilities.SetImageLabel(boton4, "src/imagesHome/HomeButton3.png", dimensionMiniaturasMax);
     }//GEN-LAST:event_boton4MouseEntered
@@ -276,6 +268,14 @@ public class myHomePanel extends javax.swing.JPanel {
     private void boton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseExited
         myUtilities.SetImageLabel(boton4, "src/imagesHome/HomeButton3.png", dimensionOriginal);
     }//GEN-LAST:event_boton4MouseExited
+
+    private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered
+        myUtilities.SetImageLabel(boton3, "src/imagesHome/HomeButton2.png", dimensionMiniaturasMax);
+    }//GEN-LAST:event_boton3MouseEntered
+
+    private void boton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseExited
+        myUtilities.SetImageLabel(boton3, "src/imagesHome/HomeButton2.png", dimensionOriginal);
+    }//GEN-LAST:event_boton3MouseExited
 
     private void boton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseEntered
         myUtilities.SetImageLabel(boton5, "src/imagesHome/HomeButton4.png", dimensionMiniaturasMax);

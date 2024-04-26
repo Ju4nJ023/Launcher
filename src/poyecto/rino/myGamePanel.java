@@ -211,18 +211,20 @@ public class myGamePanel extends javax.swing.JPanel {
         text_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Barrita aislada descripci¢n.png"))); // NOI18N
         text_title.setText("DESCRIPCIÓN");
 
-        text_description.setText("jLabel1");
+        text_description.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        text_description.setForeground(new java.awt.Color(255, 255, 255));
+        text_description.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<br>\n            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>\n            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>\n            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>");
 
         javax.swing.GroupLayout descripcionLayout = new javax.swing.GroupLayout(descripcion);
         descripcion.setLayout(descripcionLayout);
         descripcionLayout.setHorizontalGroup(
             descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(descripcionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(text_title, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(362, Short.MAX_VALUE))
-            .addGroup(descripcionLayout.createSequentialGroup()
-                .addComponent(text_description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(text_description, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                    .addGroup(descripcionLayout.createSequentialGroup()
+                        .addComponent(text_title, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         descripcionLayout.setVerticalGroup(

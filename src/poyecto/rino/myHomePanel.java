@@ -2,6 +2,9 @@
 package poyecto.rino;
 
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class myHomePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
@@ -21,10 +24,20 @@ public class myHomePanel extends javax.swing.JPanel {
      //Conociendo estos dos valores actualizamos la informacion en el panel.
      //Aqui hay que añadir todo...
      //Obtenemos toda la info en base al indice de grado y al game... y la actualizamos.
-    public void UpdateInfo(int indiceGrado){
+    public void UpdateInfo(int indiceGrado) throws FileNotFoundException{
             //Aqui updatean todo..
-            String nameGrado = myUtilities.NombreGrado(indiceGrado);
-            debugText.setText(nameGrado);
+            String nameGrado;
+                
+             try 
+                {            
+                    nameGrado = myUtilities.NombreGrado(indiceGrado);
+                }
+            catch (FileNotFoundException ex)
+                {
+                    nameGrado = "";
+                }        
+             
+             debugText.setText(nameGrado);
     }
 
     @SuppressWarnings("unchecked")
@@ -195,27 +208,51 @@ public class myHomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        parent.NewGamePanel(0, gradoActual);
+        try {
+            parent.NewGamePanel(0, gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
-        parent.NewGamePanel(1,gradoActual);
+        try {
+            parent.NewGamePanel(1,gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
-        parent.NewGamePanel(2,gradoActual);
+        try {
+            parent.NewGamePanel(2,gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
-        parent.NewGamePanel(3,gradoActual);
+        try {
+            parent.NewGamePanel(3,gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
-        parent.NewGamePanel(4,gradoActual);
+        try {
+            parent.NewGamePanel(4,gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton5MouseClicked
 
     private void boton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton6MouseClicked
-        parent.NewGamePanel(5,gradoActual);
+        try {
+            parent.NewGamePanel(5,gradoActual);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myHomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_boton6MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered

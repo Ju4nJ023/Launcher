@@ -80,12 +80,11 @@ public class myUtilities {
         return ListaTemp;
     }
     
-    private static final String JSON_FILE_PATH = "src/db/BaseDeDatos.json";
+    private static final String JSON_FILE_PATH = "src/BaseDeDatos.json";
     
     public static String NombreGrado(int indexGrado) throws FileNotFoundException
     {
-        String Path="db/BaseDeDatos.json";
-        try (BufferedReader br = new BufferedReader(new FileReader(Path)))
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
         {
             StringBuilder sb = new StringBuilder();
             String line;

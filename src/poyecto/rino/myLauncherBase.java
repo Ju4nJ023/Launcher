@@ -6,11 +6,15 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public final class myLauncherBase extends javax.swing.JFrame {
 
-    public myLauncherBase() {
+    
+    public myLauncherBase() throws FileNotFoundException {
         initComponents();
         InitCursor();
         NewHomePanel(0);
@@ -41,7 +45,11 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new myLauncherBase().setVisible(true);
+            try {
+                new myLauncherBase().setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
     
@@ -56,7 +64,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }
   
-    public void NewHomePanel(int indiceGrado) {                                      
+    public void NewHomePanel(int indiceGrado) throws FileNotFoundException {                                      
             myHomePanel home = CreateHomePanel(indiceGrado);
             home.UpdateInfo(indiceGrado);
             ShowHomePanel(home);
@@ -79,7 +87,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
         showView.repaint();
     }
      
-    public void NewGamePanel(int indiceGame, int indiceGrado) {                                      
+    public void NewGamePanel(int indiceGame, int indiceGrado) throws FileNotFoundException {                                      
             myGamePanel game = CreateGamePanel();
             game.UpdateInfo(indiceGame,indiceGrado);
             ShowGamePanel(game);
@@ -312,63 +320,123 @@ public final class myLauncherBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
-        NewHomePanel(0);
+        try {
+            NewHomePanel(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_inicioMouseClicked
 
     private void toolBar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar2MouseClicked
-        NewHomePanel(2);
+        try {
+            NewHomePanel(2);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar2MouseClicked
 
     private void toolBar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar3MouseClicked
-        NewHomePanel(3);
+        try {
+            NewHomePanel(3);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar3MouseClicked
 
     private void toolBar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar4MouseClicked
-        NewHomePanel(4);
+        try {
+            NewHomePanel(4);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar4MouseClicked
 
     private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar5MouseClicked
-        NewHomePanel(5);
+        try {
+            NewHomePanel(5);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar5MouseClicked
 
     private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
-        NewHomePanel(1);
+        try {
+            NewHomePanel(1);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar1MouseClicked
 
     private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar6MouseClicked
-        NewHomePanel(6);
+        try {
+            NewHomePanel(6);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar6MouseClicked
 
     private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar7MouseClicked
-        NewHomePanel(7);
+        try {
+            NewHomePanel(7);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar7MouseClicked
 
     private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar8MouseClicked
-        NewHomePanel(8);
+        try {
+            NewHomePanel(8);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar8MouseClicked
 
     private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar9MouseClicked
-        NewHomePanel(9);
+        try {
+            NewHomePanel(9);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar9MouseClicked
 
     private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar10MouseClicked
-        NewHomePanel(10);
+        try {
+            NewHomePanel(10);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar10MouseClicked
 
     private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar11MouseClicked
-        NewHomePanel(11);
+        try {
+            NewHomePanel(11);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar11MouseClicked
 
     private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar12MouseClicked
-        NewHomePanel(12);
+        try {
+            NewHomePanel(12);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar12MouseClicked
 
     private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar13MouseClicked
-        NewHomePanel(13);
+        try {
+            NewHomePanel(13);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar13MouseClicked
 
     private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar14MouseClicked
-        NewHomePanel(14);
+        try {
+            NewHomePanel(14);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_toolBar14MouseClicked
 
 

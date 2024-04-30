@@ -1,78 +1,74 @@
 
 package poyecto.rino;
 
+import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class myGamePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
     
+    Dimension dimensionImage = new Dimension(891 ,525);
     JLabel[] puntosFotos; 
     int indiceFotoActual = 0;  
-    ImageIcon[][] imagenes;
-    int indiceLabelActual = 0;
-    
-    //Posiblemente lo siguiente quede deprecated...
-    
-    String[] labels = {"embarque","protocolo", "maniobras", "tipologia", "señalizacion", "rescate"};
-    public String juegoTitulo = "Descripción";
-    public String juegoDescripcion = 
-            "<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<br>"
-            + "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>"
-            + "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>"
-            + "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>";
-    
-    //Hasta aqui...
-    
+    public ArrayList<String> fotosPath = new ArrayList<>();    
     
     public myGamePanel() {
         initComponents();
-        InitPuntosFotos();
-        InitVistaFotos();
+        InitPuntosFotos();  
     }    
     
     //Conociendo estos dos valores actualizamos la informacion en el panel.
-    public void UpdateInfo(int indiceGrado, int indiceGame)
+    public void UpdateInfo(int indiceGrado, int indiceGame) throws FileNotFoundException
     {
+        
+          //Aqui updatean todo..
+            String nameGame;
+            String nameGrado;
+            String nameImagenJuego;
+            
+             try 
+                {            
+                    nameGame = myUtilities.NombreJuego(indiceGrado, indiceGame);
+                    nameGrado = myUtilities.NombreGrado(indiceGrado);
+                    nameImagenJuego = myUtilities.ImagenJuego(indiceGrado, indiceGame);
+                    
+                    text_title.setText(nameGame);
+                    text_description.setText(nameGrado);
+
+                    indiceFotoActual = 0;
+
+                    fotosPath = myUtilities.CrearListaStrings("src/pics/", nameImagenJuego, ".png", 5);     
+
+                    myUtilities.SetImageLabel(vistaFotos, fotosPath.get(0), dimensionImage);  
+
+                    ActualizarPuntosFotos();
+                }
+            catch (FileNotFoundException ex)
+                {
+                    Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
+                }        
+             
+            
+        
         //Aqui hay que añadir todo...
         //Obtenemos toda la info en base al indice de grado y al game... y la actualizamos.
-        text_title.setText(juegoTitulo);
-        text_description.setText(juegoDescripcion);
-        
         
         
         //Obtienen los valores desde el JSON a partir del indice de grado y game
-        String nameGame = myUtilities.NombreJuego(indiceGrado, indiceGame);
-        String nameGrado = myUtilities.NombreGrado(indiceGrado);
+
         
         //Actualizan los valores
-        CargarImagenesCategoria(nameGrado);
-        text_title.setText(nameGame);
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        
     }
     
     private void InitPuntosFotos()
     {
         puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
-    }
-    
-    private void InitVistaFotos()
-    {
-        CargarImagenesCategoria("embarque");
-    }
-    
-    public void CargarImagenesCategoria(String categoria) {
-        imagenes = new ImageIcon[5][5];
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                String path = String.format("/imagesGame/%s%d.png", categoria, j);
-                imagenes[i][j] = new ImageIcon(getClass().getResource(path));
-            }
-        }
-        indiceFotoActual = 0;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        
-        ActualizarPuntosFotos();
     }
      
     private void ActualizarPuntosFotos() {
@@ -84,24 +80,6 @@ public class myGamePanel extends javax.swing.JPanel {
         }
       }
     }
-    
-    public void ActualizarImagenesCarrusel(String categoria) {
-    int indiceCategoria = -1;
-    for (int i = 0; i < labels.length; i++) {
-        if (labels[i].equals(categoria)) {
-            indiceCategoria = i;
-            break;
-        }
-    }
-    if (indiceCategoria != -1) {
-        indiceLabelActual = indiceCategoria;
-        indiceFotoActual = 0;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        ActualizarPuntosFotos();
-    } else {
-        // Manejar el caso de categoría no encontrada
-    }
-}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -295,49 +273,49 @@ public class myGamePanel extends javax.swing.JPanel {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         indiceFotoActual = 0;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
         ActualizarPuntosFotos();
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
         indiceFotoActual = 1;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
         ActualizarPuntosFotos();
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         indiceFotoActual = 2;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+        myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
         ActualizarPuntosFotos();
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
         indiceFotoActual = 3;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+         myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
         ActualizarPuntosFotos();
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
         indiceFotoActual = 4;
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+         myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
         ActualizarPuntosFotos();
     }//GEN-LAST:event_boton5MouseClicked
 
     private void flechaIzqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzqMouseClicked
         indiceFotoActual--;
     if (indiceFotoActual < 0) {
-        indiceFotoActual = imagenes[indiceLabelActual].length - 1;
+        indiceFotoActual = fotosPath.size();
     }
-    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+     myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
     ActualizarPuntosFotos();
     }//GEN-LAST:event_flechaIzqMouseClicked
 
     private void flechaDerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerMouseClicked
         indiceFotoActual++;
-    if (indiceFotoActual >= imagenes[indiceLabelActual].length) {
+    if (indiceFotoActual >= fotosPath.size()) {
         indiceFotoActual = 0;
     }
-    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+    myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
     ActualizarPuntosFotos();
     }//GEN-LAST:event_flechaDerMouseClicked
 

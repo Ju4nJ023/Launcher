@@ -1,35 +1,30 @@
 
 package poyecto.rino;
 
-import java.awt.BorderLayout;
-import java.awt.Cursor;
 import java.awt.Dimension;
-import java.io.FileNotFoundException;
-import javax.swing.JPanel;
 
 public class myHomePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
     
-    int myGrado;
+    int gradoActual;
+    
     Dimension dimensionMiniaturasMax = new Dimension(476, 363);
     Dimension dimensionOriginal = new Dimension(381, 291);
     
-    public myHomePanel() {
-        initComponents();     
-    
-    }
-    
-     public myHomePanel(int homeIndex) {
+     public myHomePanel() {
         initComponents();
-        myGrado = homeIndex;
         
         dimensionMiniaturasMax = new Dimension(476, 363);
         dimensionOriginal = new Dimension(381, 291);  
     }
-     
-  public void actualizarDebugText(){
-        String n=parent.NombreGrado(myGrado);
-        debugText.setText(n);
+    
+     //Conociendo estos dos valores actualizamos la informacion en el panel.
+     //Aqui hay que añadir todo...
+     //Obtenemos toda la info en base al indice de grado y al game... y la actualizamos.
+    public void UpdateInfo(int indiceGrado){
+            //Aqui updatean todo..
+            String nameGrado = myUtilities.NombreGrado(indiceGrado);
+            debugText.setText(nameGrado);
     }
 
     @SuppressWarnings("unchecked")
@@ -200,39 +195,27 @@ public class myHomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        myGamePanel game=parent.createGamePanel(0, "Embarque y desembarque en helicóptero");
-        game.cargarImagenesCategoria("Embarque");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(0, gradoActual);
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
-        myGamePanel game=parent.createGamePanel(1, "Protocolo ante una hemorragia externa");
-        game.cargarImagenesCategoria("Hemorragia");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(1,gradoActual);
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
-        myGamePanel game=parent.createGamePanel(2, "Maniobras de extinción según la instalación");
-        game.cargarImagenesCategoria("Extincion");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(2,gradoActual);
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
-        myGamePanel game=parent.createGamePanel(3, "Tipología y características de los EPIs");
-        game.cargarImagenesCategoria("EPIS");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(3,gradoActual);
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
-        myGamePanel game=parent.createGamePanel(4, "Señalización a helicóptero desde tierra");
-        game.cargarImagenesCategoria("Helicoptero");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(4,gradoActual);
     }//GEN-LAST:event_boton5MouseClicked
 
     private void boton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton6MouseClicked
-        myGamePanel game=parent.createGamePanel(5, "Rescate en ascensor");
-        game.cargarImagenesCategoria("Ascensor");
-        parent.showGamePanel(game);
+        parent.NewGamePanel(5,gradoActual);
     }//GEN-LAST:event_boton6MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered

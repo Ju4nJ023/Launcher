@@ -27,48 +27,42 @@ public class myUtilities {
     public static void SetImageLabel(JLabel label, String root){
         ImageIcon originalIcon = new ImageIcon(root);
 
-        // Obtener el tamaño máximo disponible en el JLabel
         int labelWidth = label.getWidth();
         int labelHeight = label.getHeight();
 
-        // Calcular el nuevo tamaño del Icon manteniendo las proporciones originales
         int newWidth, newHeight;
         int originalWidth = originalIcon.getIconWidth();
         int originalHeight = originalIcon.getIconHeight();
         double widthRatio = (double) labelWidth / originalWidth;
         double heightRatio = (double) labelHeight / originalHeight;
 
-        // Usar el ratio más pequeño para asegurarse de que el Icon encaje completamente en el JLabel
         double scaleFactor = Math.min(widthRatio, heightRatio);
         newWidth = (int) (originalWidth * scaleFactor);
         newHeight = (int) (originalHeight * scaleFactor);
 
-        // Escalar el Icon
         Image scaledImage = originalIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         label.setIcon(scaledIcon);
         label.repaint();
     }
+    
     public static void SetImageLabel(JLabel label, String root, Dimension dimension){
         ImageIcon originalIcon = new ImageIcon(root);
 
-        // Obtener el tamaño máximo disponible en el JLabel
         int labelWidth = dimension.width;
         int labelHeight = dimension.height;
-        // Calcular el nuevo tamaño del Icon manteniendo las proporciones originales
+
         int newWidth, newHeight;
         int originalWidth = originalIcon.getIconWidth();
         int originalHeight = originalIcon.getIconHeight();
         double widthRatio = (double) labelWidth / originalWidth;
         double heightRatio = (double) labelHeight / originalHeight;
 
-        // Usar el ratio más pequeño para asegurarse de que el Icon encaje completamente en el JLabel
         double scaleFactor = Math.min(widthRatio, heightRatio);
         newWidth = (int) (originalWidth * scaleFactor);
         newHeight = (int) (originalHeight * scaleFactor);
 
-        // Escalar el Icon
         Image scaledImage = originalIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
@@ -86,15 +80,13 @@ public class myUtilities {
         return ListaTemp;
     }
     
-    //JSON
     private static final String JSON_FILE_PATH = "src/db/BaseDeDatos.json";
     
     public static String NombreGrado(int indexGrado) throws FileNotFoundException
     {
         String Path="db/BaseDeDatos.json";
-        try (BufferedReader br = new BufferedReader(new FileReader(Path))) //Lee el json con BufferedReader
+        try (BufferedReader br = new BufferedReader(new FileReader(Path)))
         {
-            //Convierte la lectura del json en un string con StringBuilder
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) 
@@ -102,7 +94,6 @@ public class myUtilities {
                 sb.append(line);
             }
             
-            //Utiliza las librerias de JSON para acceder hasta la variable
             JSONObject grado = new JSONObject(sb.toString())
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado);
@@ -117,9 +108,8 @@ public class myUtilities {
     
     public static String NombreJuego(int indexGrado, int indexJuego) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH))) //Lee el JSON con BufferedReader
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
         {
-            //Convierte la lectura del JSON en un string con StringBuilder
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) 
@@ -127,7 +117,6 @@ public class myUtilities {
                 sb.append(line);
             }
             
-            //Utiliza las librerias de JSON para acceder hasta la variable
             JSONObject juego = new JSONObject(sb.toString())
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado)
@@ -144,9 +133,8 @@ public class myUtilities {
     
     public static String ImagenJuego(int indexGrado, int indexJuego) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH))) //Lee el JSON con BufferedReader
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
         {
-            //Convierte la lectura del JSON en un string con StringBuilder
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) 
@@ -154,7 +142,6 @@ public class myUtilities {
                 sb.append(line);
             }
             
-            //Utiliza las librerias de JSON para acceder hasta la variable
             JSONObject juego = new JSONObject(sb.toString())
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado)
@@ -171,9 +158,8 @@ public class myUtilities {
     
     public static String DescripcionJuego(int indexGrado, int indexJuego) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH))) //Lee el JSON con BufferedReader
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
         {
-            //Convierte la lectura del JSON en un string con StringBuilder
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) 
@@ -181,7 +167,6 @@ public class myUtilities {
                 sb.append(line);
             }
             
-            //Utiliza las librerias de JSON para acceder hasta la variable
             JSONObject juego = new JSONObject(sb.toString())
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado)
@@ -198,9 +183,8 @@ public class myUtilities {
         
     public static String RutaJuego(int indexGrado, int indexJuego) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH))) //Lee el JSON con BufferedReader
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
         {
-            //Convierte la lectura del JSON en un string con StringBuilder
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) 
@@ -208,7 +192,6 @@ public class myUtilities {
                 sb.append(line);
             }
             
-            //Utiliza las librerias de JSON para acceder hasta la variable
             JSONObject juego = new JSONObject(sb.toString())
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado)

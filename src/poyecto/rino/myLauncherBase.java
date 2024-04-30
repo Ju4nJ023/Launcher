@@ -6,22 +6,47 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 
-public class myLauncherBase extends javax.swing.JFrame {
-    
-    int currentGrado;
-    int currentGame;
+public final class myLauncherBase extends javax.swing.JFrame {
 
     public myLauncherBase() {
         initComponents();
-        this.setLocationRelativeTo(this);
+        InitCursor();
+        NewHomePanel(0);
+    }
+    
+     /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(myLauncherBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
         
-        //Propiedades del cursor
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new myLauncherBase().setVisible(true);
+        });
+    }
+    
+    private void InitCursor()
+    {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Image cursorImage = toolkit.getImage(getClass().getResource("/ImagesBase/CursorMano.png"));
         cursorImage = cursorImage.getScaledInstance(24, 24, Image.SCALE_SMOOTH);
@@ -29,82 +54,54 @@ public class myLauncherBase extends javax.swing.JFrame {
         this.setCursor(customCursor);
         mainPanel.setCursor(customCursor);
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-     
-           
-           myHomePanel home=createHomePanel(0);
-           
-           showHomePanel(home);
-
     }
   
-     public void showHomePanel(myHomePanel home) { 
+    public void NewHomePanel(int indiceGrado) {                                      
+            myHomePanel home = CreateHomePanel(indiceGrado);
+            home.UpdateInfo(indiceGrado);
+            ShowHomePanel(home);
+    }   
+    
+    public myHomePanel CreateHomePanel (int indiceGrado) {         
+            myHomePanel home = new myHomePanel();
+            home.setSize(1530,860);
+            home.setLocation(0,0);  
+            home.parent=this;
+            home.gradoActual = indiceGrado;
+            
+            return home;
+    } 
+    
+     public void ShowHomePanel(myHomePanel home) { 
         showView.removeAll();
         showView.add(home, BorderLayout.CENTER);
         showView.revalidate();
         showView.repaint();
     }
      
-     public void showGamePanel (myGamePanel game) {
+    public void NewGamePanel(int indiceGame, int indiceGrado) {                                      
+            myGamePanel game = CreateGamePanel();
+            game.UpdateInfo(indiceGame,indiceGrado);
+            ShowGamePanel(game);
+    } 
+     
+    
+    public myGamePanel CreateGamePanel() {
+         myGamePanel game = new myGamePanel();
+         game.setSize(1530, 860);
+         game.setLocation(0, 0);
+         game.parent = this;
+       
+         return game;
+    }  
+     
+     public void ShowGamePanel (myGamePanel game) {
         showView.removeAll();
         showView.add(game, BorderLayout.CENTER);
         showView.revalidate();
         showView.repaint();
      }
-     
-     public myHomePanel createHomePanel (int indiceGrado) {         
-         myHomePanel home = new myHomePanel();
-            home.setSize(1530,860);
-            home.setLocation(0,0);  
-            home.parent=this;
-            home.myGrado=indiceGrado;
-            return home;
-     } 
-     
-     public myGamePanel createGamePanel(int indiceGame, String tituloJuego) {
-         myGamePanel game = new myGamePanel(indiceGame, tituloJuego);
-         game.setSize(1530, 860);
-         game.setLocation(0, 0);
-         game.parent = this;
-        
-         return game;
-}  
-     
-     public String NombreGrado(int indiceGrado) {
-    switch (indiceGrado) {
-        case 1:
-            return "Grado 1";
-        case 2:
-            return "Grado 2";
-        case 3:
-            return "Grado 3";
-        case 4:
-            return "Grado 4";
-        case 5:
-            return "Grado 5";
-        case 6:
-            return "Grado 6"; 
-        case 7:
-            return "Grado 7"; 
-        case 8:
-            return "Grado 8"; 
-        case 9:
-            return "Grado 9"; 
-        case 10:
-            return "Grado 10"; 
-        case 11:
-            return "Grado 11";     
-        case 12:
-            return "Grado 12";
-        case 13:
-            return "Grado 13";
-        case 14:
-            return "Grado 14";
-        default:
-            return "Otro Grado";    
-            
-    }
-}
-
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -315,111 +312,65 @@ public class myLauncherBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
-        myHomePanel home = createHomePanel(0);
-        showHomePanel(home);
+        NewHomePanel(0);
     }//GEN-LAST:event_inicioMouseClicked
 
-    private void createNewHomePanel(int indiceGrado) {                                      
-    myHomePanel home = createHomePanel(indiceGrado);
-    home.actualizarDebugText();
-    
-    showHomePanel(home);
-
-    /**JLabel clickedLabel = (JLabel) evt.getSource();
-    String labelText = clickedLabel.getText();
-
-    home.actualizarDebugText(labelText);*/
-}
     private void toolBar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar2MouseClicked
-        createNewHomePanel(2);
+        NewHomePanel(2);
     }//GEN-LAST:event_toolBar2MouseClicked
 
     private void toolBar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar3MouseClicked
-        createNewHomePanel(3);
+        NewHomePanel(3);
     }//GEN-LAST:event_toolBar3MouseClicked
 
     private void toolBar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar4MouseClicked
-        createNewHomePanel(4);
+        NewHomePanel(4);
     }//GEN-LAST:event_toolBar4MouseClicked
 
     private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar5MouseClicked
-        createNewHomePanel(5);
+        NewHomePanel(5);
     }//GEN-LAST:event_toolBar5MouseClicked
 
     private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
-        createNewHomePanel(1);
+        NewHomePanel(1);
     }//GEN-LAST:event_toolBar1MouseClicked
 
     private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar6MouseClicked
-        createNewHomePanel(6);
+        NewHomePanel(6);
     }//GEN-LAST:event_toolBar6MouseClicked
 
     private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar7MouseClicked
-        createNewHomePanel(7);
+        NewHomePanel(7);
     }//GEN-LAST:event_toolBar7MouseClicked
 
     private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar8MouseClicked
-        createNewHomePanel(8);
+        NewHomePanel(8);
     }//GEN-LAST:event_toolBar8MouseClicked
 
     private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar9MouseClicked
-        createNewHomePanel(9);
+        NewHomePanel(9);
     }//GEN-LAST:event_toolBar9MouseClicked
 
     private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar10MouseClicked
-        createNewHomePanel(10);
+        NewHomePanel(10);
     }//GEN-LAST:event_toolBar10MouseClicked
 
     private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar11MouseClicked
-        createNewHomePanel(11);
+        NewHomePanel(11);
     }//GEN-LAST:event_toolBar11MouseClicked
 
     private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar12MouseClicked
-        createNewHomePanel(12);
+        NewHomePanel(12);
     }//GEN-LAST:event_toolBar12MouseClicked
 
     private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar13MouseClicked
-        createNewHomePanel(13);
+        NewHomePanel(13);
     }//GEN-LAST:event_toolBar13MouseClicked
 
     private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar14MouseClicked
-        createNewHomePanel(14);
+        NewHomePanel(14);
     }//GEN-LAST:event_toolBar14MouseClicked
-  
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(myLauncherBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(myLauncherBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(myLauncherBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(myLauncherBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new myLauncherBase().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;

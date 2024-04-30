@@ -1,24 +1,20 @@
 
 package poyecto.rino;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class myGamePanel extends javax.swing.JPanel {
     public myLauncherBase parent;
     
-    int myGame;
     JLabel[] puntosFotos; 
-    public int indiceFotoActual = 0;   
-    private ImageIcon[][] imagenes;
-    private String[] labels = {"embarque","protocolo", "maniobras", "tipologia", "señalizacion", "rescate"};
-    private int indiceLabelActual = 0;
+    int indiceFotoActual = 0;  
+    ImageIcon[][] imagenes;
+    int indiceLabelActual = 0;
     
+    //Posiblemente lo siguiente quede deprecated...
+    
+    String[] labels = {"embarque","protocolo", "maniobras", "tipologia", "señalizacion", "rescate"};
     public String juegoTitulo = "Descripción";
     public String juegoDescripcion = 
             "<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<br>"
@@ -26,20 +22,46 @@ public class myGamePanel extends javax.swing.JPanel {
             + "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>"
             + "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>";
     
+    //Hasta aqui...
     
-    public myGamePanel(int gameIndex, String tituloJuego) {
+    
+    public myGamePanel() {
         initComponents();
-        myGame=gameIndex;
-        
-       /** String n=String.valueOf(myGame);
-        debugText.setText(n);*/
-        
-        puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
-        juegoTitulo = tituloJuego;
-        text_title.setText(juegoTitulo);
+        InitPuntosFotos();
+        InitVistaFotos();
     }    
     
-    public void cargarImagenesCategoria(String categoria) {
+    //Conociendo estos dos valores actualizamos la informacion en el panel.
+    public void UpdateInfo(int indiceGrado, int indiceGame)
+    {
+        //Aqui hay que añadir todo...
+        //Obtenemos toda la info en base al indice de grado y al game... y la actualizamos.
+        text_title.setText(juegoTitulo);
+        text_description.setText(juegoDescripcion);
+        
+        
+        
+        //Obtienen los valores desde el JSON a partir del indice de grado y game
+        String nameGame = myUtilities.NombreJuego(indiceGrado, indiceGame);
+        String nameGrado = myUtilities.NombreGrado(indiceGrado);
+        
+        //Actualizan los valores
+        CargarImagenesCategoria(nameGrado);
+        text_title.setText(nameGame);
+        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
+    }
+    
+    private void InitPuntosFotos()
+    {
+        puntosFotos = new JLabel[]{boton1, boton2, boton3, boton4, boton5};
+    }
+    
+    private void InitVistaFotos()
+    {
+        CargarImagenesCategoria("embarque");
+    }
+    
+    public void CargarImagenesCategoria(String categoria) {
         imagenes = new ImageIcon[5][5];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -49,18 +71,11 @@ public class myGamePanel extends javax.swing.JPanel {
         }
         indiceFotoActual = 0;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
-    }
-
-    public void IniciarGame(){       
-        vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
         
-        //Cambia los textos
-        text_title.setText(juegoTitulo);
-        text_description.setText(juegoDescripcion);
+        ActualizarPuntosFotos();
     }
-    
-    private void actualizarPuntos() {
+     
+    private void ActualizarPuntosFotos() {
        for (int i = 0; i < puntosFotos.length; i++) {
         if (i == indiceFotoActual) {
             puntosFotos[i].setIcon(new ImageIcon("src/imagesGame/PuntoCarruselFilled.png"));
@@ -70,8 +85,7 @@ public class myGamePanel extends javax.swing.JPanel {
       }
     }
     
-    public void actualizarImagenes(String categoria) {
-    // Encuentra el índice de la categoría seleccionada
+    public void ActualizarImagenesCarrusel(String categoria) {
     int indiceCategoria = -1;
     for (int i = 0; i < labels.length; i++) {
         if (labels[i].equals(categoria)) {
@@ -79,21 +93,16 @@ public class myGamePanel extends javax.swing.JPanel {
             break;
         }
     }
-    // Actualiza las imágenes del carrusel
     if (indiceCategoria != -1) {
         indiceLabelActual = indiceCategoria;
         indiceFotoActual = 0;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     } else {
         // Manejar el caso de categoría no encontrada
     }
 }
     
-    /**public void actualizarDebugText(){
-        String myGameIndex= String.valueOf(myGame);
-        //debugText.setText(myGameIndex);
-    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -287,31 +296,31 @@ public class myGamePanel extends javax.swing.JPanel {
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         indiceFotoActual = 0;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
         indiceFotoActual = 1;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         indiceFotoActual = 2;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseClicked
         indiceFotoActual = 3;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     }//GEN-LAST:event_boton4MouseClicked
 
     private void boton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton5MouseClicked
         indiceFotoActual = 4;
         vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-        actualizarPuntos();
+        ActualizarPuntosFotos();
     }//GEN-LAST:event_boton5MouseClicked
 
     private void flechaIzqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzqMouseClicked
@@ -320,7 +329,7 @@ public class myGamePanel extends javax.swing.JPanel {
         indiceFotoActual = imagenes[indiceLabelActual].length - 1;
     }
     vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-    actualizarPuntos();
+    ActualizarPuntosFotos();
     }//GEN-LAST:event_flechaIzqMouseClicked
 
     private void flechaDerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerMouseClicked
@@ -329,14 +338,8 @@ public class myGamePanel extends javax.swing.JPanel {
         indiceFotoActual = 0;
     }
     vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-    actualizarPuntos();
+    ActualizarPuntosFotos();
     }//GEN-LAST:event_flechaDerMouseClicked
-
-    private void botonMouseClicked(java.awt.event.MouseEvent evt, int index) {                                    
-    indiceFotoActual = index;
-    vistaFotos.setIcon(imagenes[indiceLabelActual][indiceFotoActual]);
-    actualizarPuntos();
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GamePanel;

@@ -16,7 +16,8 @@ public class myGamePanel extends javax.swing.JPanel {
     Dimension dimensionImage = new Dimension(891 ,525);
     JLabel[] puntosFotos; 
     int indiceFotoActual = 0;  
-    public ArrayList<String> fotosPath = new ArrayList<>();    
+    public ArrayList<String> fotosPath = new ArrayList<>();  
+    public String juegoRuta = "src/ejecutables/CampoPracticas_EPIS.exe";
     
     public myGamePanel() {
         initComponents();
@@ -325,11 +326,9 @@ public class myGamePanel extends javax.swing.JPanel {
 
     private void comenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comenzarMouseClicked
         try {
-        String rutaJuego = "src/ejecutables/CampoPracticas_EPIS.exe";
-        Process process = Runtime.getRuntime().exec(rutaJuego);
-        process.waitFor();
-        } catch (IOException | InterruptedException ex) {
-        Logger.getLogger(myGamePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Runtime.getRuntime().exec(juegoRuta);
+        } catch (IOException ex) {
+            Logger.getLogger(myGamePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_comenzarMouseClicked
 

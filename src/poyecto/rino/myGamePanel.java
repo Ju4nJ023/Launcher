@@ -17,7 +17,7 @@ public class myGamePanel extends javax.swing.JPanel {
     JLabel[] puntosFotos; 
     int indiceFotoActual = 0;  
     public ArrayList<String> fotosPath = new ArrayList<>();  
-    public String juegoRuta = "src/CampoPracticas_EPIS.exe";
+    public String juegoRuta = "src/ejecutables/PC_EPIs/CampoPracticas_EPIS.exe";
     
     public myGamePanel() {
         initComponents();
@@ -40,6 +40,7 @@ public class myGamePanel extends javax.swing.JPanel {
                     nameImagenJuego = myUtilities.ImagenJuego(indiceGrado, indiceGame);
                     descripcionJuego = myUtilities.DescripcionJuego(indiceGrado, indiceGame);
                     rutaJuego = myUtilities.RutaJuego(indiceGrado, indiceGame);
+                    juegoRuta=rutaJuego;
                     
                     text_title.setText(nameGame);
                     text_description.setText(descripcionJuego);

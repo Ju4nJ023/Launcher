@@ -97,7 +97,7 @@ public class myUtilities {
                     .getJSONArray("grados")
                         .getJSONObject(indexGrado);
             
-            return grado.getString("titulo");
+            return grado.getString("nombre");
         } 
         catch (IOException | JSONException e) 
         {

@@ -3,6 +3,7 @@ package poyecto.rino;
 
 import java.awt.Dimension;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,25 +26,23 @@ public class myGamePanel extends javax.swing.JPanel {
     //Conociendo estos dos valores actualizamos la informacion en el panel.
     public void UpdateInfo(int indiceGrado, int indiceGame) throws FileNotFoundException
     {
-        
-          //Aqui updatean todo..
             String nameGame;
             String nameGrado;
             String nameImagenJuego;
+            String descripcionJuego;
             
              try 
                 {            
                     nameGame = myUtilities.NombreJuego(indiceGrado, indiceGame);
                     nameGrado = myUtilities.NombreGrado(indiceGrado);
                     nameImagenJuego = myUtilities.ImagenJuego(indiceGrado, indiceGame);
+                    descripcionJuego = myUtilities.DescripcionJuego(indiceGrado, indiceGame);
                     
                     text_title.setText(nameGame);
-                    text_description.setText(nameGrado);
-
+                    text_description.setText(descripcionJuego);
+                    
                     indiceFotoActual = 0;
-
-                    fotosPath = myUtilities.CrearListaStrings("src/pics/", nameImagenJuego, ".png", 5);     
-
+                    fotosPath = myUtilities.CrearListaStrings("src/imagesGame/", nameImagenJuego, ".png", 5);
                     myUtilities.SetImageLabel(vistaFotos, fotosPath.get(0), dimensionImage);  
 
                     ActualizarPuntosFotos();
@@ -227,6 +226,11 @@ public class myGamePanel extends javax.swing.JPanel {
         GamePanel.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, -1, 190));
 
         comenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesGame/Comenzar.png"))); // NOI18N
+        comenzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comenzarMouseClicked(evt);
+            }
+        });
         GamePanel.add(comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 780, 260, 50));
 
         flechaIzq.setBackground(new java.awt.Color(0, 39, 75));
@@ -304,7 +308,7 @@ public class myGamePanel extends javax.swing.JPanel {
     private void flechaIzqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzqMouseClicked
         indiceFotoActual--;
     if (indiceFotoActual < 0) {
-        indiceFotoActual = fotosPath.size();
+        indiceFotoActual = fotosPath.size()-1;
     }
      myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
     ActualizarPuntosFotos();
@@ -318,6 +322,16 @@ public class myGamePanel extends javax.swing.JPanel {
     myUtilities.SetImageLabel(vistaFotos, fotosPath.get(indiceFotoActual),dimensionImage);
     ActualizarPuntosFotos();
     }//GEN-LAST:event_flechaDerMouseClicked
+
+    private void comenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comenzarMouseClicked
+        try {
+        String rutaJuego = "src/ejecutables/CampoPracticas_EPIS.exe";
+        Process process = Runtime.getRuntime().exec(rutaJuego);
+        process.waitFor();
+        } catch (IOException | InterruptedException ex) {
+        Logger.getLogger(myGamePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_comenzarMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GamePanel;

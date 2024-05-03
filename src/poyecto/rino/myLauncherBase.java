@@ -89,7 +89,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
      
     public void NewGamePanel(int indiceGame, int indiceGrado) throws FileNotFoundException {                                      
             myGamePanel game = CreateGamePanel();
-            game.UpdateInfo(indiceGame,indiceGrado);
+            game.UpdateInfo(indiceGrado,indiceGame);
             ShowGamePanel(game);
     } 
      
@@ -135,11 +135,11 @@ public final class myLauncherBase extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setUndecorated(true);
-        setResizable(false);
 
         mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
-        mainPanel.setSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inicio.setDoubleBuffered(true);
@@ -329,7 +329,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar2MouseClicked
         try {
-            NewHomePanel(2);
+            NewHomePanel(1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -337,7 +337,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar3MouseClicked
         try {
-            NewHomePanel(3);
+            NewHomePanel(2);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -345,7 +345,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar4MouseClicked
         try {
-            NewHomePanel(4);
+            NewHomePanel(3);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -353,7 +353,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar5MouseClicked
         try {
-            NewHomePanel(5);
+            NewHomePanel(4);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -361,7 +361,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar1MouseClicked
         try {
-            NewHomePanel(1);
+            NewHomePanel(0);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -369,7 +369,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar6MouseClicked
         try {
-            NewHomePanel(6);
+            NewHomePanel(5);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -377,7 +377,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar7MouseClicked
         try {
-            NewHomePanel(7);
+            NewHomePanel(6);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -385,7 +385,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar8MouseClicked
         try {
-            NewHomePanel(8);
+            NewHomePanel(7);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -393,7 +393,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar9MouseClicked
         try {
-            NewHomePanel(9);
+            NewHomePanel(8);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -401,7 +401,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar10MouseClicked
         try {
-            NewHomePanel(10);
+            NewHomePanel(9);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -409,7 +409,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar11MouseClicked
         try {
-            NewHomePanel(11);
+            NewHomePanel(10);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -417,7 +417,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar12MouseClicked
         try {
-            NewHomePanel(12);
+            NewHomePanel(11);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -425,7 +425,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar13MouseClicked
         try {
-            NewHomePanel(13);
+            NewHomePanel(12);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -433,7 +433,7 @@ public final class myLauncherBase extends javax.swing.JFrame {
 
     private void toolBar14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolBar14MouseClicked
         try {
-            NewHomePanel(14);
+            NewHomePanel(13);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(myLauncherBase.class.getName()).log(Level.SEVERE, null, ex);
         }

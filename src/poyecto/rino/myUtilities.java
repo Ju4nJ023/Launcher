@@ -81,6 +81,7 @@ public class myUtilities {
     }
     
     private static final String JSON_FILE_PATH = "src/BaseDeDatos.json";
+    private static final String JSON_EXE_PATH = "src/CampoPracticas_EPIS.exe";
     
     public static String NombreGrado(int indexGrado) throws FileNotFoundException
     {
@@ -182,7 +183,7 @@ public class myUtilities {
         
     public static String RutaJuego(int indexGrado, int indexJuego) throws FileNotFoundException
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_PATH)))
+        try (BufferedReader br = new BufferedReader(new FileReader(JSON_EXE_PATH)))
         {
             StringBuilder sb = new StringBuilder();
             String line;
